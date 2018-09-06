@@ -1,0 +1,65 @@
+﻿@model GisDes.Models.ActividadesView
+
+@{
+    ViewBag.Title = "ActividadesPorSemillero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actividades Por Semillero</h2>
+<div class="form-group">
+    <select id="Selector" runat="server" onchange="cambioSemillero()">
+        <option> </option>
+        @foreach (var semillero in Model.semilleroInvestigacion)
+        {
+            <option value="@semillero.Nombre"> @semillero.Nombre </option>
+        }
+
+    </select>
+    @using (Html.BeginForm("ActividadesController"))
+    {
+        <input type="text" name="nombre" id="nombre" />
+        <button type="submit" class="btn btn-primary btn-large">Listar Actividades</button>
+    }
+
+
+</div>
+
+<table class="table" id="tabla">
+    <tr>
+        <th>
+            Nombre Actividad
+        </th>
+        <th>
+            Descripcion
+        </th>
+
+    </tr>
+    @if (Model.semilleroInvestigacion.First() != null)
+    {
+        foreach (var item in Model.semilleroInvestigacion)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LineaInvestigacion)
+
+            </tr>
+        }
+    }
+
+</table>
+
+<script>
+
+function cambioSemillero() {
+
+        var select = document.getElementById("Selector");
+        var options = document.getElementsByTagName("option");
+        alert(select.value);
+
+        document.getElementById("nombre").value = select.value;
+
+    }
+</script>

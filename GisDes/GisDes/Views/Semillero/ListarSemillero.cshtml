@@ -1,0 +1,51 @@
+﻿@model IEnumerable<GisDes.Models.SemilleroInvestigacion>
+
+@{
+    ViewBag.Title = "Lista de Semillero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista Semilleros de Investigación</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nombre")
+        </th>
+        <th>
+            @Html.DisplayName("Linea Investigación")
+        </th>
+        <th>
+            @Html.DisplayName("Estado")
+        </th>
+
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LineaInvestigacion1.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Estado1.Nombre)
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Detalle", "MostrarInformacion", new { id = item.Id })
+                @Html.ActionLink("Editar", "ActualizarSemillero", new { id = item.Id })
+
+            </td>
+        </tr>
+    }
+
+</table>

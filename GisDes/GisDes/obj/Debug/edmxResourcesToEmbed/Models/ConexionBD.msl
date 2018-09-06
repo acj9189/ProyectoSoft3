@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GISDESModelStoreContainer" CdmEntityContainer="GisdesEntity">
+    <EntitySetMapping Name="Actividad">
+      <EntityTypeMapping TypeName="GISDESModel.Actividad">
+        <MappingFragment StoreEntitySet="Actividad">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActividadAsociadoGrupoInv">
+      <EntityTypeMapping TypeName="GISDESModel.ActividadAsociadoGrupoInv">
+        <MappingFragment StoreEntitySet="ActividadAsociadoGrupoInv">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActividadAsociadoSemilleroInv">
+      <EntityTypeMapping TypeName="GISDESModel.ActividadAsociadoSemilleroInv">
+        <MappingFragment StoreEntitySet="ActividadAsociadoSemilleroInv">
+          <ScalarProperty Name="IdSemillero" ColumnName="IdSemillero" />
+          <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Articulo">
+      <EntityTypeMapping TypeName="GISDESModel.Articulo">
+        <MappingFragment StoreEntitySet="Articulo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Resumen" ColumnName="Resumen" />
+          <ScalarProperty Name="Enlace" ColumnName="Enlace" />
+          <ScalarProperty Name="FechaPublicacion" ColumnName="FechaPublicacion" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticuloAsociadoGrupoInv">
+      <EntityTypeMapping TypeName="GISDESModel.ArticuloAsociadoGrupoInv">
+        <MappingFragment StoreEntitySet="ArticuloAsociadoGrupoInv">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticuloAsociadoSemilleroInv">
+      <EntityTypeMapping TypeName="GISDESModel.ArticuloAsociadoSemilleroInv">
+        <MappingFragment StoreEntitySet="ArticuloAsociadoSemilleroInv">
+          <ScalarProperty Name="IdSemillero" ColumnName="IdSemillero" />
+          <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categoria">
+      <EntityTypeMapping TypeName="GISDESModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clasificacion">
+      <EntityTypeMapping TypeName="GISDESModel.Clasificacion">
+        <MappingFragment StoreEntitySet="Clasificacion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estado">
+      <EntityTypeMapping TypeName="GISDESModel.Estado">
+        <MappingFragment StoreEntitySet="Estado">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado1" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Evento">
+      <EntityTypeMapping TypeName="GISDESModel.Evento">
+        <MappingFragment StoreEntitySet="Evento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="EnteOrganizador" ColumnName="EnteOrganizador" />
+          <ScalarProperty Name="Certificado" ColumnName="Certificado" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventoAsociadoGrupoInv">
+      <EntityTypeMapping TypeName="GISDESModel.EventoAsociadoGrupoInv">
+        <MappingFragment StoreEntitySet="EventoAsociadoGrupoInv">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventoAsociadoSemilleroInv">
+      <EntityTypeMapping TypeName="GISDESModel.EventoAsociadoSemilleroInv">
+        <MappingFragment StoreEntitySet="EventoAsociadoSemilleroInv">
+          <ScalarProperty Name="IdSemillero" ColumnName="IdSemillero" />
+          <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GrupoInvestigacion">
+      <EntityTypeMapping TypeName="GISDESModel.GrupoInvestigacion">
+        <MappingFragment StoreEntitySet="GrupoInvestigacion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Coordinador" ColumnName="Coordinador" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
+          <ScalarProperty Name="AreaConocimiento" ColumnName="AreaConocimiento" />
+          <ScalarProperty Name="GrupLac" ColumnName="GrupLac" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Integrante">
+      <EntityTypeMapping TypeName="GISDESModel.Integrante">
+        <MappingFragment StoreEntitySet="Integrante">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Documento" ColumnName="Documento" />
+          <ScalarProperty Name="Nacionalidad" ColumnName="Nacionalidad" />
+          <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+          <ScalarProperty Name="Cvlac" ColumnName="Cvlac" />
+          <ScalarProperty Name="NivelAcademico" ColumnName="NivelAcademico" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="TipoIntegrante" ColumnName="TipoIntegrante" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteActividad">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteActividad">
+        <MappingFragment StoreEntitySet="IntegranteActividad">
+          <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteArticulo">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteArticulo">
+        <MappingFragment StoreEntitySet="IntegranteArticulo">
+          <ScalarProperty Name="IdArticulo" ColumnName="IdArticulo" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteEvento">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteEvento">
+        <MappingFragment StoreEntitySet="IntegranteEvento">
+          <ScalarProperty Name="IdEvento" ColumnName="IdEvento" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteGrupoInvestigacion">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteGrupoInvestigacion">
+        <MappingFragment StoreEntitySet="IntegranteGrupoInvestigacion">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteLibro">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteLibro">
+        <MappingFragment StoreEntitySet="IntegranteLibro">
+          <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteProyecto">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteProyecto">
+        <MappingFragment StoreEntitySet="IntegranteProyecto">
+          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteReconocimiento">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteReconocimiento">
+        <MappingFragment StoreEntitySet="IntegranteReconocimiento">
+          <ScalarProperty Name="IdReconocimiento" ColumnName="IdReconocimiento" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IntegranteSemilleroInvestigacion">
+      <EntityTypeMapping TypeName="GISDESModel.IntegranteSemilleroInvestigacion">
+        <MappingFragment StoreEntitySet="IntegranteSemilleroInvestigacion">
+          <ScalarProperty Name="IdSemillero" ColumnName="IdSemillero" />
+          <ScalarProperty Name="IdIntegrante" ColumnName="IdIntegrante" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Libro">
+      <EntityTypeMapping TypeName="GISDESModel.Libro">
+        <MappingFragment StoreEntitySet="Libro">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Resumen" ColumnName="Resumen" />
+          <ScalarProperty Name="Enlace" ColumnName="Enlace" />
+          <ScalarProperty Name="FechaPublicacion" ColumnName="FechaPublicacion" />
+          <ScalarProperty Name="Editorial" ColumnName="Editorial" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibroAsociadoGrupoInv">
+      <EntityTypeMapping TypeName="GISDESModel.LibroAsociadoGrupoInv">
+        <MappingFragment StoreEntitySet="LibroAsociadoGrupoInv">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LibroAsociadoSemilleroInv">
+      <EntityTypeMapping TypeName="GISDESModel.LibroAsociadoSemilleroInv">
+        <MappingFragment StoreEntitySet="LibroAsociadoSemilleroInv">
+          <ScalarProperty Name="IdSemillero" ColumnName="IdSemillero" />
+          <ScalarProperty Name="IdLibro" ColumnName="IdLibro" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LineaInvestigacion">
+      <EntityTypeMapping TypeName="GISDESModel.LineaInvestigacion">
+        <MappingFragment StoreEntitySet="LineaInvestigacion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="GrupoInvestigacion" ColumnName="GrupoInvestigacion" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NivelAcademico">
+      <EntityTypeMapping TypeName="GISDESModel.NivelAcademico">
+        <MappingFragment StoreEntitySet="NivelAcademico">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proyecto">
+      <EntityTypeMapping TypeName="GISDESModel.Proyecto">
+        <MappingFragment StoreEntitySet="Proyecto">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Lugar" ColumnName="Lugar" />
+          <ScalarProperty Name="InvestigadorPrincipal" ColumnName="InvestigadorPrincipal" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProyectoAsociadoGrupoInv">
+      <EntityTypeMapping TypeName="GISDESModel.ProyectoAsociadoGrupoInv">
+        <MappingFragment StoreEntitySet="ProyectoAsociadoGrupoInv">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProyectoAsociadoSemilleroInv">
+      <EntityTypeMapping TypeName="GISDESModel.ProyectoAsociadoSemilleroInv">
+        <MappingFragment StoreEntitySet="ProyectoAsociadoSemilleroInv">
+          <ScalarProperty Name="IdSemillero" ColumnName="IdSemillero" />
+          <ScalarProperty Name="IdProyecto" ColumnName="IdProyecto" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReconociemientoAsociadoGrupoInv">
+      <EntityTypeMapping TypeName="GISDESModel.ReconociemientoAsociadoGrupoInv">
+        <MappingFragment StoreEntitySet="ReconociemientoAsociadoGrupoInv">
+          <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+          <ScalarProperty Name="IdReconocimiento" ColumnName="IdReconocimiento" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReconociemientoAsociadoSemilleroInv">
+      <EntityTypeMapping TypeName="GISDESModel.ReconociemientoAsociadoSemilleroInv">
+        <MappingFragment StoreEntitySet="ReconociemientoAsociadoSemilleroInv">
+          <ScalarProperty Name="IdSemillero" ColumnName="IdSemillero" />
+          <ScalarProperty Name="IdReconocimiento" ColumnName="IdReconocimiento" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reconocimiento">
+      <EntityTypeMapping TypeName="GISDESModel.Reconocimiento">
+        <MappingFragment StoreEntitySet="Reconocimiento">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SemilleroInvestigacion">
+      <EntityTypeMapping TypeName="GISDESModel.SemilleroInvestigacion">
+        <MappingFragment StoreEntitySet="SemilleroInvestigacion">
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Coordinador" ColumnName="Coordinador" />
+          <ScalarProperty Name="ObjetivoGeneral" ColumnName="ObjetivoGeneral" />
+          <ScalarProperty Name="ObjetivosEspecificos" ColumnName="ObjetivosEspecificos" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="LineaInvestigacion" ColumnName="LineaInvestigacion" />
+          <ScalarProperty Name="Enlace" ColumnName="Enlace" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoIntegrante">
+      <EntityTypeMapping TypeName="GISDESModel.TipoIntegrante">
+        <MappingFragment StoreEntitySet="TipoIntegrante">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="FechaUpdate" ColumnName="FechaUpdate" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="GISDESModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
