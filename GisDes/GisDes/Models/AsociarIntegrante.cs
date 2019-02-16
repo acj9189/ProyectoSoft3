@@ -47,6 +47,7 @@ namespace GisDes.Models
                         FechaUpdate = DateTime.Today,
                         Estado = 1
                     });
+
                     bd.SaveChanges();
                     salida[0] = "success";
                     salida[1] = "Operacion exitosa";
@@ -61,5 +62,26 @@ namespace GisDes.Models
             }
             return salida;
         }
+
+        public List<String> listarActividadesSegunSemillero(decimal idSemillero) {
+
+            using (GisdesEntity bd = new GisdesEntity())
+            {
+               List<string> acts = new List<string>();
+               ActividadAsociadoSemilleroInv actividadesAsociadasSemillero = (ActividadAsociadoSemilleroInv) bd.ActividadAsociadoSemilleroInv.Where(x => x.IdSemillero == idSemillero);
+               foreach (char i in actividadesAsociadasSemillero.IdActividad.ToString())
+               {
+                    Actividad actividadSemillero = (Actividad) bd.Actividad.Where(x => x.Id == (decimal) i ) ;
+                    acts.Add(actividadSemillero.Nombre);     
+               }
+                return acts;
+            } 
+            
+        }
+
+
+
+
+
     }
 }
