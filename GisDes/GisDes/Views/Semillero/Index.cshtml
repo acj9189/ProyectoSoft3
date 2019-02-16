@@ -1,0 +1,90 @@
+﻿@model GisDes.Models.IntegranteYsemillero
+
+@{
+    ViewBag.Title = "Listar Integrantes Semillero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de integrantes por semillero</h2>
+
+@using (Html.BeginForm("SemilleroController"))
+{
+
+    <div class="form-group">
+        <select id="Selector" name="SelectorSemillero">
+            <option> </option>
+            @if (Model.semilleroInvestigacion!=null) {
+                foreach (var semillero in Model.semilleroInvestigacion)
+                {
+                    <option value="@semillero.Id"> @semillero.Nombre </option>
+                }
+            }
+        </select>
+        <button type="submit" class="btn btn-primary btn-large">Listar Integrantes</button>
+    </div>
+}
+
+
+
+<table class="table" id="tabla">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Apellidos
+        </th>
+        <th>
+            Documento
+        </th>
+        <th>
+            Nacionalidad
+        </th>
+        <th>
+            Sexo
+        </th>
+        <th>
+            Cvlac
+        </th>
+        <th>
+            Correo
+        </th>
+        <th>
+            FechaIngreso
+        </th>
+    </tr>
+    @if (Model.integrantes != (null))
+    {
+        foreach (var item in Model.integrantes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Documento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nacionalidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sexo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cvlac)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FechaIngreso)
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+

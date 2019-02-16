@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GISDESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="Certificado" Type="bit" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'GISDES.dbo.GruposInvestigacion' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="GruposInvestigacion">
+          <Property Name="ID" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="IdCordinador" Type="int" />
+          <Property Name="IdSemillero" Type="int" />
+        </EntityType>-->
+  <EntityType Name="Integrantes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Nombres" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="70" Nullable="false" />
+    <Property Name="Ocupación" Type="varchar" MaxLength="50" />
+    <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CvLAC" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SemilleroInvestigacion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="IDCoordinador" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'GISDES.dbo.Table_prueba' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="Table_prueba">
+          <Property Name="id" Type="int" />
+          <Property Name="nombre" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Contraseña" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Rol" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_SemilleroInvestigacion_Integrantes">
+    <End Role="Integrantes" Type="Self.Integrantes" Multiplicity="1" />
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrantes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SemilleroInvestigacion">
+        <PropertyRef Name="IDCoordinador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GISDESModelStoreContainer">
+    <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Integrantes" EntityType="Self.Integrantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SemilleroInvestigacion" EntityType="Self.SemilleroInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_SemilleroInvestigacion_Integrantes" Association="Self.FK_SemilleroInvestigacion_Integrantes">
+      <End Role="Integrantes" EntitySet="Integrantes" />
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,113 @@
+﻿@model GisDes.Models.ActualizarSemillero
+
+@{
+    ViewBag.Title = "ActualizarSemillero";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ActualizarSemillero</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Semillero Investigacion</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.semillero.Id)
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Nombre</label>
+            <div class="col-md-10">
+                <input class="form-control" value="@Model.semillero.Nombre" name="Nombre" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Coordinador:</label>
+            <div class="col-md-10">
+                <select id="Coordinador" name="Coordinador">
+                    <option> </option>
+                    @if (Model.integrantes != null)
+                    {
+                        foreach (var integrante in Model.integrantes)
+                        {
+                            if (integrante.Id == Model.semillero.Coordinador)
+                            {
+                                <option value="@integrante.Id" selected="selected"> @integrante.Nombre</option>
+
+                            }
+                            else
+                            {
+                                <option value="@integrante.Id"> @integrante.Nombre</option>
+
+                            }
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Objetivo general</label>
+            <div class="col-md-10">
+                <textarea class="form-control" name="ObjetivoGeneral">@Model.semillero.ObjetivoGeneral</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Objetivos especificos</label>
+            <div class="col-md-10">
+                <textarea class="form-control" name="ObjetivoEspecifico">@Model.semillero.ObjetivosEspecificos</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Linea de investigacion</label>
+            <div class="col-md-10">
+                <select id="LineaInvestigacion" name="LineaInvestigacion">
+                    <option> </option>
+                    @if (Model.LineInvetigacion != null)
+                    {
+                        foreach (var LineaInvestigacion in Model.LineInvetigacion)
+                        {
+                            if (LineaInvestigacion.Id == Model.semillero.LineaInvestigacion)
+                            {
+                                <option value="@LineaInvestigacion.Id" selected="selected"> @LineaInvestigacion.Nombre </option>
+                            }
+                            else
+                            {
+                                <option value="@LineaInvestigacion.Id"> @LineaInvestigacion.Nombre </option>
+                            }
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Enlace</label>
+            <div class="col-md-10">
+                <input class="form-control" value="@Model.semillero.Enlace" name="Enlace" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Tags</label>
+            <div class="col-md-10">
+                <input class="form-control" value="@Model.semillero.Tags" name="Tags" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
