@@ -278,7 +278,7 @@ namespace GisDes.Controllers
         }
 
         /// <summary>
-        /// Metodo AsociarIntegranteSemillero crea la relacion entre integrante y semilleroa partir de una fecha
+        /// Descripcion: Metodo AsociarIntegranteSemillero crea la relacion entre integrante y semillero as partir de una fecha
         /// METODO POST
         /// </summary>
         /// <param name="idSemillero">id del semillero al que va a pertenecer el integrante</param>
@@ -306,6 +306,10 @@ namespace GisDes.Controllers
             ViewBag.TitleMSG = "Operacion exitosa";
             ViewBag.MessageMSG = "Se a asociado correctamente el nuevo integrante";
             ViewBag.IconMSG = "success";*/
+
+
+            
+
             PonerInformacionEnVEntana("Operacion exitosa", "Se a asociado correctamente el nuevo integrante", "success");
 
             return View(modelo);
