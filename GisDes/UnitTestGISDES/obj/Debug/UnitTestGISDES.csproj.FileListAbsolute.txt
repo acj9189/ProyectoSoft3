@@ -28,3 +28,33 @@ D:\Comunicacion\Desarrollo\Practicas\SOFT 3\Proyecto\ProyectoSoft3\GisDes\UnitTe
 D:\Comunicacion\Desarrollo\Practicas\SOFT 3\Proyecto\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.csproj.CopyComplete
 D:\Comunicacion\Desarrollo\Practicas\SOFT 3\Proyecto\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.dll
 D:\Comunicacion\Desarrollo\Practicas\SOFT 3\Proyecto\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.pdb
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\ApplicationInsights.config
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\es\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\UnitTestGISDES.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\UnitTestGISDES.pdb
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\GisDes.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\System.Web.Mvc.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\System.Web.Optimization.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\EntityFramework.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\GisDes.pdb
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\GisDes.dll.config
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\System.Web.Mvc.xml
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\System.Web.Optimization.xml
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\EntityFramework.xml
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\es\System.Web.Mvc.resources.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\es\System.Web.Optimization.resources.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.csprojAssemblyReference.cache
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.csproj.CoreCompileInputs.cache
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.csproj.CopyComplete
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.pdb
