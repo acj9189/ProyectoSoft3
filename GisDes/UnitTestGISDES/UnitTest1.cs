@@ -10,11 +10,10 @@ namespace UnitTestGISDES
     public class UnitTest1
     {
         [TestMethod]
-        public void testlistarIntegrantesNombresPositivo()
+        public void testlistarIntegrantesNombresVerdadero()
         {
             using (GisdesEntity bd = new GisdesEntity())
             {
-
                 SemilleroController semilleroController = new SemilleroController();
                 decimal id = 1;
                 String Nombre = "";
@@ -24,17 +23,16 @@ namespace UnitTestGISDES
                 decimal LineaInvestigacion = 1;
                 String Enlace = "";
                 String Tag = "";
-                Boolean salidaComparar = true;
-
+                //Boolean salidaComparar = true;
                 Boolean salidasGuardarSemillero = semilleroController.GuardarSemillero(id, Nombre, Coordinador, ObjetivoGeneral, ObjetivoEspecifico,
                 LineaInvestigacion, Enlace, Tag);
-                Assert.Equals(salidasGuardarSemillero, salidaComparar);
+                Assert.IsTrue(salidasGuardarSemillero);
             }
 
         }
 
         [TestMethod]
-        public void testlistarIntegrantesNombresNegativo()
+        public void testlistarIntegrantesNombresfalso()
         {
             using (GisdesEntity bd = new GisdesEntity())
             {
@@ -61,7 +59,7 @@ namespace UnitTestGISDES
         }
 
         [TestMethod]
-        public void testlistarIntegrantesNombresExeption()
+        public void testlistarIntegrantesNombresNulo()
         {
             using (GisdesEntity bd = new GisdesEntity())
             {
@@ -86,7 +84,7 @@ namespace UnitTestGISDES
 
 
         [TestMethod]
-        public void asociarIntegranteSemillero()
+        public void asociarIntegranteSemilleroVerdadero()
         {
             using (GisdesEntity bd = new GisdesEntity())
             {
@@ -99,15 +97,54 @@ namespace UnitTestGISDES
                 salidaComparar[0] = "success";
                 salidaComparar[1] = "Operacion exitosa";
                 salidaComparar[2] = "Se a creado existosamente la relacion";
-                Assert.AreEqual(salidaAsociarIntegrante, salidaComparar);
+                for (int i = 0; i <= salidaAsociarIntegrante.Length; i++)
+                {
+                    Assert.Equals(salidaAsociarIntegrante[i].ToString(), salidaComparar[i].ToString());
+                }    
             }
 
         }
 
-       
+        [TestMethod]
+        public void asociarIntegranteSemilleroFalso()
+        {
+            using (GisdesEntity bd = new GisdesEntity())
+            {
+                AsociarIntegrante asociarIntegrante = new AsociarIntegrante();
+                decimal idSemillero = 1;
+                decimal idIntegrante = 1;
+                String fecha = "2018/05/09";
+                string[] salidaAsociarIntegrante = asociarIntegrante.asociarIntegranteSemillero(idSemillero, idIntegrante, fecha);
+                string[] salidaComparar = new string[3];
+                Assert.Equals(salidaAsociarIntegrante, salidaComparar);
+
+            }
+
+        }
 
         [TestMethod]
-        public void comprobarDatos()
+        public void asociarIntegranteSemilleroNulo()
+        {
+            using (GisdesEntity bd = new GisdesEntity())
+            {
+                AsociarIntegrante asociarIntegrante = new AsociarIntegrante();
+                decimal idSemillero = 1;
+                decimal idIntegrante = 1;
+                String fecha = "2018/05/09";
+                string[] salidaAsociarIntegrante = asociarIntegrante.asociarIntegranteSemillero(idSemillero, idIntegrante, fecha);
+                string[] salidaComparar = new string[3];
+                salidaComparar[0] = "success";
+                salidaComparar[1] = "Operacion exitosa";
+                salidaComparar[2] = "Se a creado existosamente la relacion";
+                Assert.IsNull(salidaAsociarIntegrante);
+            }
+
+        }
+
+
+
+        [TestMethod]
+        public void comprobarDatosVerdadero()
         {
             using (GisdesEntity bd = new GisdesEntity())
             {
@@ -123,8 +160,44 @@ namespace UnitTestGISDES
                 Assert.IsTrue(comprobarDatosEstado);
 
             }
+        }
 
+        [TestMethod]
+        public void comprobarDatosFalso()
+        {
+            using (GisdesEntity bd = new GisdesEntity())
+            {
+                ActualizarSemilleroController comprobarDatos = new ActualizarSemilleroController();
+                string nombre = "";
+                int coordinador = 1;
+                string objetivoGeneral = "";
+                string objetivoEspecifico = "";
+                int lineaInvestigacion = 1;
+                string enlace = "";
+                Boolean comprobarDatosEstado;
+                comprobarDatosEstado = comprobarDatos.ComprobarDatos(nombre, coordinador, objetivoGeneral, objetivoEspecifico, lineaInvestigacion, enlace);
+                Assert.IsFalse(comprobarDatosEstado);
 
+            }
+        }
+
+        [TestMethod]
+        public void comprobarDatosNulo()
+        {
+            using (GisdesEntity bd = new GisdesEntity())
+            {
+                ActualizarSemilleroController comprobarDatos = new ActualizarSemilleroController();
+                string nombre = "";
+                int coordinador = 1;
+                string objetivoGeneral = "";
+                string objetivoEspecifico = "";
+                int lineaInvestigacion = 1;
+                string enlace = "";
+                Boolean comprobarDatosEstado;
+                comprobarDatosEstado = comprobarDatos.ComprobarDatos(nombre, coordinador, objetivoGeneral, objetivoEspecifico, lineaInvestigacion, enlace);
+                Assert.IsNull(comprobarDatosEstado);
+
+            }
         }
 
     }
