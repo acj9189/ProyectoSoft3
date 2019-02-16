@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GisDes", "GisDes\GisDes.csproj", "{1454F1E1-BF4A-4024-8460-FF06E072F179}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGISDES", "UnitTestGISDES\UnitTestGISDES.csproj", "{60CEB480-BAFA-49A1-A958-3B54F7ED987F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1454F1E1-BF4A-4024-8460-FF06E072F179}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1454F1E1-BF4A-4024-8460-FF06E072F179}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1454F1E1-BF4A-4024-8460-FF06E072F179}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60CEB480-BAFA-49A1-A958-3B54F7ED987F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60CEB480-BAFA-49A1-A958-3B54F7ED987F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60CEB480-BAFA-49A1-A958-3B54F7ED987F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60CEB480-BAFA-49A1-A958-3B54F7ED987F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
