@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="GisdesEntity-Web.config Connection String" description="GisdesEntity Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="metadata=res://*/Models.ConexionBD.csdl|res://*/Models.ConexionBD.ssdl|res://*/Models.ConexionBD.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=software220181.database.windows.net;initial catalog=GISDES;persist security info=True;user id=software2;password=sistemas.2018;multipleactiveresultsets=True;application name=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Comunicacion\\Desarrollo\\Practicas\\Soft2\\software2\\GisDes\\GisDes\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='GisdesEntity']/@connectionString" />
+  </parameter>
+</parameters>

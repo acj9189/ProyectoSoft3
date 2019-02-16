@@ -76,15 +76,19 @@ namespace GisDes.Controllers
         /// <param name="parametro">parametro de busqueda (año, mes, dia)</param>
         /// <returns>un objeto de tipo diccionario con los datos de la consulta</returns>
         [HttpPost]
-        public ActionResult ReporteSemillerosNumIntegrantes(string finicial, string ffinal, string parametro)
-        {
+        public ActionResult ReporteSemillerosNumIntegrantes(String finicial, DateTime data, string parametro)
+        {            
             using (GisdesEntity bd = new GisdesEntity())
             {
-                ViewBag.fechaI = finicial;
-                ViewBag.fechaF = ffinal;
-
+                //data = new DateTime();
+            
+                //ViewBag.fechaI = finicial;
+                //ViewBag.fechaF = fultimo;
+                
                 DateTime fechaInicial = Convert.ToDateTime(finicial);
-                DateTime fechaFinal = Convert.ToDateTime(ffinal);
+                DateTime fechaFinal = Convert.ToDateTime(data);
+
+               
 
                 if (fechaInicial > fechaFinal)
                 {
@@ -167,7 +171,7 @@ namespace GisDes.Controllers
                     ViewBag.TitleMSG = "Informacion";
                     ViewBag.MessageMSG = "No se encuentran registros de integrantes registrados en el rango de fechas establecido";
                     ViewBag.IconMSG = "info";
-
+                   
                     return View();
                 }
                 CalcularPorcentajeCrecimientoSemilleros();

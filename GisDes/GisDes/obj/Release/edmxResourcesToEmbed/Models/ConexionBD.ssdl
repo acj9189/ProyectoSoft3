@@ -1,0 +1,1777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GISDESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actividad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" Nullable="false" />
+    <Property Name="FechaFin" Type="date" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ActividadAsociadoGrupoInv">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+      <PropertyRef Name="IdActividad" />
+    </Key>
+    <Property Name="IdGrupo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdActividad" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ActividadAsociadoSemilleroInv">
+    <Key>
+      <PropertyRef Name="IdSemillero" />
+      <PropertyRef Name="IdActividad" />
+    </Key>
+    <Property Name="IdSemillero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdActividad" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Articulo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Categoria" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Resumen" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Enlace" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaPublicacion" Type="date" Nullable="false" />
+    <Property Name="Tags" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ArticuloAsociadoGrupoInv">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+      <PropertyRef Name="IdArticulo" />
+    </Key>
+    <Property Name="IdGrupo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdArticulo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ArticuloAsociadoSemilleroInv">
+    <Key>
+      <PropertyRef Name="IdSemillero" />
+      <PropertyRef Name="IdArticulo" />
+    </Key>
+    <Property Name="IdSemillero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdArticulo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Clasificacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Evento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="EnteOrganizador" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Certificado" Type="bit" Nullable="false" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="EventoAsociadoGrupoInv">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+      <PropertyRef Name="IdEvento" />
+    </Key>
+    <Property Name="IdGrupo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdEvento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="EventoAsociadoSemilleroInv">
+    <Key>
+      <PropertyRef Name="IdSemillero" />
+      <PropertyRef Name="IdEvento" />
+    </Key>
+    <Property Name="IdSemillero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdEvento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="GrupoInvestigacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Coordinador" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" Nullable="false" />
+    <Property Name="Clasificacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="AreaConocimiento" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="GrupLac" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Integrante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Apellidos" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Documento" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nacionalidad" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Sexo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cvlac" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="NivelAcademico" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaIngreso" Type="date" Nullable="false" />
+    <Property Name="TipoIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteActividad">
+    <Key>
+      <PropertyRef Name="IdActividad" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdActividad" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteArticulo">
+    <Key>
+      <PropertyRef Name="IdArticulo" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdArticulo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteEvento">
+    <Key>
+      <PropertyRef Name="IdEvento" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdEvento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteGrupoInvestigacion">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdGrupo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaIngreso" Type="date" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteLibro">
+    <Key>
+      <PropertyRef Name="IdLibro" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdLibro" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteProyecto">
+    <Key>
+      <PropertyRef Name="IdProyecto" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdProyecto" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteReconocimiento">
+    <Key>
+      <PropertyRef Name="IdReconocimiento" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdReconocimiento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="IntegranteSemilleroInvestigacion">
+    <Key>
+      <PropertyRef Name="IdSemillero" />
+      <PropertyRef Name="IdIntegrante" />
+    </Key>
+    <Property Name="IdSemillero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdIntegrante" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaIngreso" Type="date" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Libro">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Categoria" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Resumen" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Enlace" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaPublicacion" Type="date" Nullable="false" />
+    <Property Name="Editorial" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Tags" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LibroAsociadoGrupoInv">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+      <PropertyRef Name="IdLibro" />
+    </Key>
+    <Property Name="IdGrupo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdLibro" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LibroAsociadoSemilleroInv">
+    <Key>
+      <PropertyRef Name="IdSemillero" />
+      <PropertyRef Name="IdLibro" />
+    </Key>
+    <Property Name="IdSemillero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdLibro" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="LineaInvestigacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="GrupoInvestigacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="NivelAcademico">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Proyecto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Lugar" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="InvestigadorPrincipal" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" Nullable="false" />
+    <Property Name="FechaFin" Type="date" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ProyectoAsociadoGrupoInv">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+      <PropertyRef Name="IdProyecto" />
+    </Key>
+    <Property Name="IdGrupo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdProyecto" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ProyectoAsociadoSemilleroInv">
+    <Key>
+      <PropertyRef Name="IdSemillero" />
+      <PropertyRef Name="IdProyecto" />
+    </Key>
+    <Property Name="IdSemillero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdProyecto" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ReconociemientoAsociadoGrupoInv">
+    <Key>
+      <PropertyRef Name="IdGrupo" />
+      <PropertyRef Name="IdReconocimiento" />
+    </Key>
+    <Property Name="IdGrupo" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdReconocimiento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="ReconociemientoAsociadoSemilleroInv">
+    <Key>
+      <PropertyRef Name="IdSemillero" />
+      <PropertyRef Name="IdReconocimiento" />
+    </Key>
+    <Property Name="IdSemillero" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IdReconocimiento" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Reconocimiento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fecha" Type="date" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="SemilleroInvestigacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Coordinador" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ObjetivoGeneral" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ObjetivosEspecificos" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="FechaCreacion" Type="date" Nullable="false" />
+    <Property Name="LineaInvestigacion" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Enlace" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Tags" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoIntegrante">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="FechaUpdate" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <Association Name="FK_Categoria_A">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Articulo" Type="Self.Articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articulo">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Categoria_L">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Libro" Type="Self.Libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="Categoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clasificacion_GI">
+    <End Role="Clasificacion" Type="Self.Clasificacion" Multiplicity="1" />
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clasificacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoInvestigacion">
+        <PropertyRef Name="Clasificacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coordinador_GI">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoInvestigacion">
+        <PropertyRef Name="Coordinador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coordinador_SI">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SemilleroInvestigacion">
+        <PropertyRef Name="Coordinador" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_A">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Articulo" Type="Self.Articulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articulo">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_AC">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Actividad">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_ACTASOGI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ActividadAsociadoGrupoInv" Type="Self.ActividadAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadAsociadoGrupoInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_ACTASOSI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ActividadAsociadoSemilleroInv" Type="Self.ActividadAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadAsociadoSemilleroInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_ARASOGI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ArticuloAsociadoGrupoInv" Type="Self.ArticuloAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticuloAsociadoGrupoInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_ARASOSI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ArticuloAsociadoSemilleroInv" Type="Self.ArticuloAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticuloAsociadoSemilleroInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_Categoria">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Categoria">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_Clasificacion">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Clasificacion" Type="Self.Clasificacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Clasificacion">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_EVASOGI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="EventoAsociadoGrupoInv" Type="Self.EventoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventoAsociadoGrupoInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_EVASOSI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="EventoAsociadoSemilleroInv" Type="Self.EventoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventoAsociadoSemilleroInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_Evento">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Evento" Type="Self.Evento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Evento">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_GI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GrupoInvestigacion">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_I">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Integrante">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_IGI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteGrupoInvestigacion" Type="Self.IntegranteGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteGrupoInvestigacion">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_INACT">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteActividad" Type="Self.IntegranteActividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteActividad">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_INAR">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteArticulo" Type="Self.IntegranteArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteArticulo">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_INE">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteEvento" Type="Self.IntegranteEvento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteEvento">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_INLIB">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteLibro" Type="Self.IntegranteLibro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteLibro">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_INPRO">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteProyecto" Type="Self.IntegranteProyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteProyecto">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_INREC">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteReconocimiento" Type="Self.IntegranteReconocimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteReconocimiento">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_ISI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="IntegranteSemilleroInvestigacion" Type="Self.IntegranteSemilleroInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteSemilleroInvestigacion">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_L">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Libro" Type="Self.Libro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Libro">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_LI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="LineaInvestigacion" Type="Self.LineaInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LineaInvestigacion">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_LIBASOGI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="LibroAsociadoGrupoInv" Type="Self.LibroAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroAsociadoGrupoInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_LIBASOSI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="LibroAsociadoSemilleroInv" Type="Self.LibroAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroAsociadoSemilleroInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_NAcademico">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="NivelAcademico" Type="Self.NivelAcademico" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="NivelAcademico">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_P">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Proyecto">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_PROASOGI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ProyectoAsociadoGrupoInv" Type="Self.ProyectoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProyectoAsociadoGrupoInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_PROASOSI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ProyectoAsociadoSemilleroInv" Type="Self.ProyectoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProyectoAsociadoSemilleroInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_RECASOGI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ReconociemientoAsociadoGrupoInv" Type="Self.ReconociemientoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReconociemientoAsociadoGrupoInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_RECASOSI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="ReconociemientoAsociadoSemilleroInv" Type="Self.ReconociemientoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReconociemientoAsociadoSemilleroInv">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_Reconocimiento">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="Reconocimiento" Type="Self.Reconocimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reconocimiento">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_SI">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SemilleroInvestigacion">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Estado_TIntegrante">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+    <End Role="TipoIntegrante" Type="Self.TipoIntegrante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TipoIntegrante">
+        <PropertyRef Name="Estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GrupoInv_LI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="LineaInvestigacion" Type="Self.LineaInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LineaInvestigacion">
+        <PropertyRef Name="GrupoInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ACT_ACTASOGI">
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+    <End Role="ActividadAsociadoGrupoInv" Type="Self.ActividadAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadAsociadoGrupoInv">
+        <PropertyRef Name="IdActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ACT_ACTASOSI">
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+    <End Role="ActividadAsociadoSemilleroInv" Type="Self.ActividadAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadAsociadoSemilleroInv">
+        <PropertyRef Name="IdActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ACT_INACT">
+    <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+    <End Role="IntegranteActividad" Type="Self.IntegranteActividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteActividad">
+        <PropertyRef Name="IdActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_AR_INAR">
+    <End Role="Articulo" Type="Self.Articulo" Multiplicity="1" />
+    <End Role="IntegranteArticulo" Type="Self.IntegranteArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteArticulo">
+        <PropertyRef Name="IdArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ART_ARASOGI">
+    <End Role="Articulo" Type="Self.Articulo" Multiplicity="1" />
+    <End Role="ArticuloAsociadoGrupoInv" Type="Self.ArticuloAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticuloAsociadoGrupoInv">
+        <PropertyRef Name="IdArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_ART_ARASOSI">
+    <End Role="Articulo" Type="Self.Articulo" Multiplicity="1" />
+    <End Role="ArticuloAsociadoSemilleroInv" Type="Self.ArticuloAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articulo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticuloAsociadoSemilleroInv">
+        <PropertyRef Name="IdArticulo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_E_INE">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="IntegranteEvento" Type="Self.IntegranteEvento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteEvento">
+        <PropertyRef Name="IdEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EVE_EVASOGI">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="EventoAsociadoGrupoInv" Type="Self.EventoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventoAsociadoGrupoInv">
+        <PropertyRef Name="IdEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_EVE_EVASOSI">
+    <End Role="Evento" Type="Self.Evento" Multiplicity="1" />
+    <End Role="EventoAsociadoSemilleroInv" Type="Self.EventoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Evento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventoAsociadoSemilleroInv">
+        <PropertyRef Name="IdEvento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_G_IGI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="IntegranteGrupoInvestigacion" Type="Self.IntegranteGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteGrupoInvestigacion">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_GI_ACTASOGI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="ActividadAsociadoGrupoInv" Type="Self.ActividadAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadAsociadoGrupoInv">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_GI_ARASOGI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="ArticuloAsociadoGrupoInv" Type="Self.ArticuloAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticuloAsociadoGrupoInv">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_GI_EVASOGI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="EventoAsociadoGrupoInv" Type="Self.EventoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventoAsociadoGrupoInv">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_GI_LIBASOGI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="LibroAsociadoGrupoInv" Type="Self.LibroAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroAsociadoGrupoInv">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_GI_PROASOGI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="ProyectoAsociadoGrupoInv" Type="Self.ProyectoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProyectoAsociadoGrupoInv">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_GI_RECASOGI">
+    <End Role="GrupoInvestigacion" Type="Self.GrupoInvestigacion" Multiplicity="1" />
+    <End Role="ReconociemientoAsociadoGrupoInv" Type="Self.ReconociemientoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReconociemientoAsociadoGrupoInv">
+        <PropertyRef Name="IdGrupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_IGI">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteGrupoInvestigacion" Type="Self.IntegranteGrupoInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteGrupoInvestigacion">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_INACT">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteActividad" Type="Self.IntegranteActividad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteActividad">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_INAR">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteArticulo" Type="Self.IntegranteArticulo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteArticulo">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_INE">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteEvento" Type="Self.IntegranteEvento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteEvento">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_INLIB">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteLibro" Type="Self.IntegranteLibro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteLibro">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_INPRO">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteProyecto" Type="Self.IntegranteProyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteProyecto">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_INREC">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteReconocimiento" Type="Self.IntegranteReconocimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteReconocimiento">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_I_ISI">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="IntegranteSemilleroInvestigacion" Type="Self.IntegranteSemilleroInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteSemilleroInvestigacion">
+        <PropertyRef Name="IdIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_LIB_INLIB">
+    <End Role="Libro" Type="Self.Libro" Multiplicity="1" />
+    <End Role="IntegranteLibro" Type="Self.IntegranteLibro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libro">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteLibro">
+        <PropertyRef Name="IdLibro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_LIB_LIBASOGI">
+    <End Role="Libro" Type="Self.Libro" Multiplicity="1" />
+    <End Role="LibroAsociadoGrupoInv" Type="Self.LibroAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libro">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroAsociadoGrupoInv">
+        <PropertyRef Name="IdLibro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_LIB_LIBASOSI">
+    <End Role="Libro" Type="Self.Libro" Multiplicity="1" />
+    <End Role="LibroAsociadoSemilleroInv" Type="Self.LibroAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Libro">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroAsociadoSemilleroInv">
+        <PropertyRef Name="IdLibro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_PRO_INPRO">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="IntegranteProyecto" Type="Self.IntegranteProyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteProyecto">
+        <PropertyRef Name="IdProyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_PRO_PROASOGI">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="ProyectoAsociadoGrupoInv" Type="Self.ProyectoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProyectoAsociadoGrupoInv">
+        <PropertyRef Name="IdProyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_PRO_PROASOSI">
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+    <End Role="ProyectoAsociadoSemilleroInv" Type="Self.ProyectoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proyecto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProyectoAsociadoSemilleroInv">
+        <PropertyRef Name="IdProyecto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_REC_INREC">
+    <End Role="Reconocimiento" Type="Self.Reconocimiento" Multiplicity="1" />
+    <End Role="IntegranteReconocimiento" Type="Self.IntegranteReconocimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reconocimiento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteReconocimiento">
+        <PropertyRef Name="IdReconocimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_REC_RECASOGI">
+    <End Role="Reconocimiento" Type="Self.Reconocimiento" Multiplicity="1" />
+    <End Role="ReconociemientoAsociadoGrupoInv" Type="Self.ReconociemientoAsociadoGrupoInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reconocimiento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReconociemientoAsociadoGrupoInv">
+        <PropertyRef Name="IdReconocimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_REC_RECASOSI">
+    <End Role="Reconocimiento" Type="Self.Reconocimiento" Multiplicity="1" />
+    <End Role="ReconociemientoAsociadoSemilleroInv" Type="Self.ReconociemientoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reconocimiento">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReconociemientoAsociadoSemilleroInv">
+        <PropertyRef Name="IdReconocimiento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_S_ISI">
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="1" />
+    <End Role="IntegranteSemilleroInvestigacion" Type="Self.IntegranteSemilleroInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemilleroInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IntegranteSemilleroInvestigacion">
+        <PropertyRef Name="IdSemillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_SI_ACTASOSI">
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="1" />
+    <End Role="ActividadAsociadoSemilleroInv" Type="Self.ActividadAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemilleroInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActividadAsociadoSemilleroInv">
+        <PropertyRef Name="IdSemillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_SI_ARASOSI">
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="1" />
+    <End Role="ArticuloAsociadoSemilleroInv" Type="Self.ArticuloAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemilleroInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ArticuloAsociadoSemilleroInv">
+        <PropertyRef Name="IdSemillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_SI_EVASOSI">
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="1" />
+    <End Role="EventoAsociadoSemilleroInv" Type="Self.EventoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemilleroInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EventoAsociadoSemilleroInv">
+        <PropertyRef Name="IdSemillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_SI_LIBASOSI">
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="1" />
+    <End Role="LibroAsociadoSemilleroInv" Type="Self.LibroAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemilleroInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LibroAsociadoSemilleroInv">
+        <PropertyRef Name="IdSemillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_SI_PROASOSI">
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="1" />
+    <End Role="ProyectoAsociadoSemilleroInv" Type="Self.ProyectoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemilleroInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProyectoAsociadoSemilleroInv">
+        <PropertyRef Name="IdSemillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ID_SI_RECASOSI">
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="1" />
+    <End Role="ReconociemientoAsociadoSemilleroInv" Type="Self.ReconociemientoAsociadoSemilleroInv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SemilleroInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ReconociemientoAsociadoSemilleroInv">
+        <PropertyRef Name="IdSemillero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_InvestigadorP_P">
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="1" />
+    <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Integrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Proyecto">
+        <PropertyRef Name="InvestigadorPrincipal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LineaInvestigacion_SI">
+    <End Role="LineaInvestigacion" Type="Self.LineaInvestigacion" Multiplicity="1" />
+    <End Role="SemilleroInvestigacion" Type="Self.SemilleroInvestigacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LineaInvestigacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SemilleroInvestigacion">
+        <PropertyRef Name="LineaInvestigacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NivelAcademico_I">
+    <End Role="NivelAcademico" Type="Self.NivelAcademico" Multiplicity="1" />
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NivelAcademico">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Integrante">
+        <PropertyRef Name="NivelAcademico" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TipoIntegrante_I">
+    <End Role="TipoIntegrante" Type="Self.TipoIntegrante" Multiplicity="1" />
+    <End Role="Integrante" Type="Self.Integrante" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoIntegrante">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Integrante">
+        <PropertyRef Name="TipoIntegrante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GISDESModelStoreContainer">
+    <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActividadAsociadoGrupoInv" EntityType="Self.ActividadAsociadoGrupoInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActividadAsociadoSemilleroInv" EntityType="Self.ActividadAsociadoSemilleroInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Articulo" EntityType="Self.Articulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticuloAsociadoGrupoInv" EntityType="Self.ArticuloAsociadoGrupoInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ArticuloAsociadoSemilleroInv" EntityType="Self.ArticuloAsociadoSemilleroInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clasificacion" EntityType="Self.Clasificacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Evento" EntityType="Self.Evento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventoAsociadoGrupoInv" EntityType="Self.EventoAsociadoGrupoInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventoAsociadoSemilleroInv" EntityType="Self.EventoAsociadoSemilleroInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrupoInvestigacion" EntityType="Self.GrupoInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Integrante" EntityType="Self.Integrante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteActividad" EntityType="Self.IntegranteActividad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteArticulo" EntityType="Self.IntegranteArticulo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteEvento" EntityType="Self.IntegranteEvento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteGrupoInvestigacion" EntityType="Self.IntegranteGrupoInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteLibro" EntityType="Self.IntegranteLibro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteProyecto" EntityType="Self.IntegranteProyecto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteReconocimiento" EntityType="Self.IntegranteReconocimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IntegranteSemilleroInvestigacion" EntityType="Self.IntegranteSemilleroInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Libro" EntityType="Self.Libro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LibroAsociadoGrupoInv" EntityType="Self.LibroAsociadoGrupoInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LibroAsociadoSemilleroInv" EntityType="Self.LibroAsociadoSemilleroInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LineaInvestigacion" EntityType="Self.LineaInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NivelAcademico" EntityType="Self.NivelAcademico" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProyectoAsociadoGrupoInv" EntityType="Self.ProyectoAsociadoGrupoInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProyectoAsociadoSemilleroInv" EntityType="Self.ProyectoAsociadoSemilleroInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReconociemientoAsociadoGrupoInv" EntityType="Self.ReconociemientoAsociadoGrupoInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReconociemientoAsociadoSemilleroInv" EntityType="Self.ReconociemientoAsociadoSemilleroInv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reconocimiento" EntityType="Self.Reconocimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SemilleroInvestigacion" EntityType="Self.SemilleroInvestigacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoIntegrante" EntityType="Self.TipoIntegrante" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Categoria_A" Association="Self.FK_Categoria_A">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Articulo" EntitySet="Articulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Categoria_L" Association="Self.FK_Categoria_L">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Libro" EntitySet="Libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clasificacion_GI" Association="Self.FK_Clasificacion_GI">
+      <End Role="Clasificacion" EntitySet="Clasificacion" />
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coordinador_GI" Association="Self.FK_Coordinador_GI">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coordinador_SI" Association="Self.FK_Coordinador_SI">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_A" Association="Self.FK_Estado_A">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Articulo" EntitySet="Articulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_AC" Association="Self.FK_Estado_AC">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Actividad" EntitySet="Actividad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_ACTASOGI" Association="Self.FK_Estado_ACTASOGI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ActividadAsociadoGrupoInv" EntitySet="ActividadAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_ACTASOSI" Association="Self.FK_Estado_ACTASOSI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ActividadAsociadoSemilleroInv" EntitySet="ActividadAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_ARASOGI" Association="Self.FK_Estado_ARASOGI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ArticuloAsociadoGrupoInv" EntitySet="ArticuloAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_ARASOSI" Association="Self.FK_Estado_ARASOSI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ArticuloAsociadoSemilleroInv" EntitySet="ArticuloAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_Categoria" Association="Self.FK_Estado_Categoria">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Categoria" EntitySet="Categoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_Clasificacion" Association="Self.FK_Estado_Clasificacion">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Clasificacion" EntitySet="Clasificacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_EVASOGI" Association="Self.FK_Estado_EVASOGI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="EventoAsociadoGrupoInv" EntitySet="EventoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_EVASOSI" Association="Self.FK_Estado_EVASOSI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="EventoAsociadoSemilleroInv" EntitySet="EventoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_Evento" Association="Self.FK_Estado_Evento">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Evento" EntitySet="Evento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_GI" Association="Self.FK_Estado_GI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_I" Association="Self.FK_Estado_I">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Integrante" EntitySet="Integrante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_IGI" Association="Self.FK_Estado_IGI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteGrupoInvestigacion" EntitySet="IntegranteGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_INACT" Association="Self.FK_Estado_INACT">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteActividad" EntitySet="IntegranteActividad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_INAR" Association="Self.FK_Estado_INAR">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteArticulo" EntitySet="IntegranteArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_INE" Association="Self.FK_Estado_INE">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteEvento" EntitySet="IntegranteEvento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_INLIB" Association="Self.FK_Estado_INLIB">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteLibro" EntitySet="IntegranteLibro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_INPRO" Association="Self.FK_Estado_INPRO">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteProyecto" EntitySet="IntegranteProyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_INREC" Association="Self.FK_Estado_INREC">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteReconocimiento" EntitySet="IntegranteReconocimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_ISI" Association="Self.FK_Estado_ISI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="IntegranteSemilleroInvestigacion" EntitySet="IntegranteSemilleroInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_L" Association="Self.FK_Estado_L">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Libro" EntitySet="Libro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_LI" Association="Self.FK_Estado_LI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="LineaInvestigacion" EntitySet="LineaInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_LIBASOGI" Association="Self.FK_Estado_LIBASOGI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="LibroAsociadoGrupoInv" EntitySet="LibroAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_LIBASOSI" Association="Self.FK_Estado_LIBASOSI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="LibroAsociadoSemilleroInv" EntitySet="LibroAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_NAcademico" Association="Self.FK_Estado_NAcademico">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="NivelAcademico" EntitySet="NivelAcademico" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_P" Association="Self.FK_Estado_P">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Proyecto" EntitySet="Proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_PROASOGI" Association="Self.FK_Estado_PROASOGI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ProyectoAsociadoGrupoInv" EntitySet="ProyectoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_PROASOSI" Association="Self.FK_Estado_PROASOSI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ProyectoAsociadoSemilleroInv" EntitySet="ProyectoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_RECASOGI" Association="Self.FK_Estado_RECASOGI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ReconociemientoAsociadoGrupoInv" EntitySet="ReconociemientoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_RECASOSI" Association="Self.FK_Estado_RECASOSI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="ReconociemientoAsociadoSemilleroInv" EntitySet="ReconociemientoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_Reconocimiento" Association="Self.FK_Estado_Reconocimiento">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="Reconocimiento" EntitySet="Reconocimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_SI" Association="Self.FK_Estado_SI">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Estado_TIntegrante" Association="Self.FK_Estado_TIntegrante">
+      <End Role="Estado" EntitySet="Estado" />
+      <End Role="TipoIntegrante" EntitySet="TipoIntegrante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GrupoInv_LI" Association="Self.FK_GrupoInv_LI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="LineaInvestigacion" EntitySet="LineaInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ACT_ACTASOGI" Association="Self.FK_ID_ACT_ACTASOGI">
+      <End Role="Actividad" EntitySet="Actividad" />
+      <End Role="ActividadAsociadoGrupoInv" EntitySet="ActividadAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ACT_ACTASOSI" Association="Self.FK_ID_ACT_ACTASOSI">
+      <End Role="Actividad" EntitySet="Actividad" />
+      <End Role="ActividadAsociadoSemilleroInv" EntitySet="ActividadAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ACT_INACT" Association="Self.FK_ID_ACT_INACT">
+      <End Role="Actividad" EntitySet="Actividad" />
+      <End Role="IntegranteActividad" EntitySet="IntegranteActividad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_AR_INAR" Association="Self.FK_ID_AR_INAR">
+      <End Role="Articulo" EntitySet="Articulo" />
+      <End Role="IntegranteArticulo" EntitySet="IntegranteArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ART_ARASOGI" Association="Self.FK_ID_ART_ARASOGI">
+      <End Role="Articulo" EntitySet="Articulo" />
+      <End Role="ArticuloAsociadoGrupoInv" EntitySet="ArticuloAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_ART_ARASOSI" Association="Self.FK_ID_ART_ARASOSI">
+      <End Role="Articulo" EntitySet="Articulo" />
+      <End Role="ArticuloAsociadoSemilleroInv" EntitySet="ArticuloAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_E_INE" Association="Self.FK_ID_E_INE">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="IntegranteEvento" EntitySet="IntegranteEvento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EVE_EVASOGI" Association="Self.FK_ID_EVE_EVASOGI">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="EventoAsociadoGrupoInv" EntitySet="EventoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_EVE_EVASOSI" Association="Self.FK_ID_EVE_EVASOSI">
+      <End Role="Evento" EntitySet="Evento" />
+      <End Role="EventoAsociadoSemilleroInv" EntitySet="EventoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_G_IGI" Association="Self.FK_ID_G_IGI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="IntegranteGrupoInvestigacion" EntitySet="IntegranteGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_GI_ACTASOGI" Association="Self.FK_ID_GI_ACTASOGI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="ActividadAsociadoGrupoInv" EntitySet="ActividadAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_GI_ARASOGI" Association="Self.FK_ID_GI_ARASOGI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="ArticuloAsociadoGrupoInv" EntitySet="ArticuloAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_GI_EVASOGI" Association="Self.FK_ID_GI_EVASOGI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="EventoAsociadoGrupoInv" EntitySet="EventoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_GI_LIBASOGI" Association="Self.FK_ID_GI_LIBASOGI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="LibroAsociadoGrupoInv" EntitySet="LibroAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_GI_PROASOGI" Association="Self.FK_ID_GI_PROASOGI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="ProyectoAsociadoGrupoInv" EntitySet="ProyectoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_GI_RECASOGI" Association="Self.FK_ID_GI_RECASOGI">
+      <End Role="GrupoInvestigacion" EntitySet="GrupoInvestigacion" />
+      <End Role="ReconociemientoAsociadoGrupoInv" EntitySet="ReconociemientoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_IGI" Association="Self.FK_ID_I_IGI">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteGrupoInvestigacion" EntitySet="IntegranteGrupoInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_INACT" Association="Self.FK_ID_I_INACT">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteActividad" EntitySet="IntegranteActividad" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_INAR" Association="Self.FK_ID_I_INAR">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteArticulo" EntitySet="IntegranteArticulo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_INE" Association="Self.FK_ID_I_INE">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteEvento" EntitySet="IntegranteEvento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_INLIB" Association="Self.FK_ID_I_INLIB">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteLibro" EntitySet="IntegranteLibro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_INPRO" Association="Self.FK_ID_I_INPRO">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteProyecto" EntitySet="IntegranteProyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_INREC" Association="Self.FK_ID_I_INREC">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteReconocimiento" EntitySet="IntegranteReconocimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_I_ISI" Association="Self.FK_ID_I_ISI">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="IntegranteSemilleroInvestigacion" EntitySet="IntegranteSemilleroInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_LIB_INLIB" Association="Self.FK_ID_LIB_INLIB">
+      <End Role="Libro" EntitySet="Libro" />
+      <End Role="IntegranteLibro" EntitySet="IntegranteLibro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_LIB_LIBASOGI" Association="Self.FK_ID_LIB_LIBASOGI">
+      <End Role="Libro" EntitySet="Libro" />
+      <End Role="LibroAsociadoGrupoInv" EntitySet="LibroAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_LIB_LIBASOSI" Association="Self.FK_ID_LIB_LIBASOSI">
+      <End Role="Libro" EntitySet="Libro" />
+      <End Role="LibroAsociadoSemilleroInv" EntitySet="LibroAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_PRO_INPRO" Association="Self.FK_ID_PRO_INPRO">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="IntegranteProyecto" EntitySet="IntegranteProyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_PRO_PROASOGI" Association="Self.FK_ID_PRO_PROASOGI">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="ProyectoAsociadoGrupoInv" EntitySet="ProyectoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_PRO_PROASOSI" Association="Self.FK_ID_PRO_PROASOSI">
+      <End Role="Proyecto" EntitySet="Proyecto" />
+      <End Role="ProyectoAsociadoSemilleroInv" EntitySet="ProyectoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_REC_INREC" Association="Self.FK_ID_REC_INREC">
+      <End Role="Reconocimiento" EntitySet="Reconocimiento" />
+      <End Role="IntegranteReconocimiento" EntitySet="IntegranteReconocimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_REC_RECASOGI" Association="Self.FK_ID_REC_RECASOGI">
+      <End Role="Reconocimiento" EntitySet="Reconocimiento" />
+      <End Role="ReconociemientoAsociadoGrupoInv" EntitySet="ReconociemientoAsociadoGrupoInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_REC_RECASOSI" Association="Self.FK_ID_REC_RECASOSI">
+      <End Role="Reconocimiento" EntitySet="Reconocimiento" />
+      <End Role="ReconociemientoAsociadoSemilleroInv" EntitySet="ReconociemientoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_S_ISI" Association="Self.FK_ID_S_ISI">
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+      <End Role="IntegranteSemilleroInvestigacion" EntitySet="IntegranteSemilleroInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_SI_ACTASOSI" Association="Self.FK_ID_SI_ACTASOSI">
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+      <End Role="ActividadAsociadoSemilleroInv" EntitySet="ActividadAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_SI_ARASOSI" Association="Self.FK_ID_SI_ARASOSI">
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+      <End Role="ArticuloAsociadoSemilleroInv" EntitySet="ArticuloAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_SI_EVASOSI" Association="Self.FK_ID_SI_EVASOSI">
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+      <End Role="EventoAsociadoSemilleroInv" EntitySet="EventoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_SI_LIBASOSI" Association="Self.FK_ID_SI_LIBASOSI">
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+      <End Role="LibroAsociadoSemilleroInv" EntitySet="LibroAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_SI_PROASOSI" Association="Self.FK_ID_SI_PROASOSI">
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+      <End Role="ProyectoAsociadoSemilleroInv" EntitySet="ProyectoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ID_SI_RECASOSI" Association="Self.FK_ID_SI_RECASOSI">
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+      <End Role="ReconociemientoAsociadoSemilleroInv" EntitySet="ReconociemientoAsociadoSemilleroInv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_InvestigadorP_P" Association="Self.FK_InvestigadorP_P">
+      <End Role="Integrante" EntitySet="Integrante" />
+      <End Role="Proyecto" EntitySet="Proyecto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LineaInvestigacion_SI" Association="Self.FK_LineaInvestigacion_SI">
+      <End Role="LineaInvestigacion" EntitySet="LineaInvestigacion" />
+      <End Role="SemilleroInvestigacion" EntitySet="SemilleroInvestigacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NivelAcademico_I" Association="Self.FK_NivelAcademico_I">
+      <End Role="NivelAcademico" EntitySet="NivelAcademico" />
+      <End Role="Integrante" EntitySet="Integrante" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TipoIntegrante_I" Association="Self.FK_TipoIntegrante_I">
+      <End Role="TipoIntegrante" EntitySet="TipoIntegrante" />
+      <End Role="Integrante" EntitySet="Integrante" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

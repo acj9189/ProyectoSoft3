@@ -9,5 +9,6 @@ namespace GisDes.Models
     {
         public List<Integrante> integrantes { set; get; }
         public List<SemilleroInvestigacion> semilleroInvestigacion { set; get; }
+        public List<String> FechaIngreso { set; get; }
     }
 }

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Consultar Semillero por nombre o por tag";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <h2>Consultar Semillero por nombre o por tag</h2>
+    </head>
+
+    <body>
+        @using (Html.BeginForm())
+        {
+
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <h4>Consultar Semillero por nombre o por tag</h4>
+            <hr />
+
+            <div class="form-group">
+                <label class="col-md-2" id="lblTag">Palabra relacionada a Buscar en Semillero:</label>
+                <input type="text" class="form-control col-md-10" id="txtTag" value="" placeholder="Nombre del semillero o tag" name="PalabraClave" />
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2" id="lblTipo">Tipo de informnacion o forma de Buscar:</label>
+                <select id="cboxForma" name="palabraSeleccionada">
+                    <option selected="selected" value="SeleccioneTipoBusqueda">Seleccione el tipo de busqueda</option>
+                    <option value="BusquedaPorNombre">Busqueda por Nombre</option>
+                    <option value="BusquedaPorTag">Busqueda por Tag</option>
+                </select>
+            </div>
+
+            <div class=" form-group col-md-12">
+                <button id="btnEnviar" class="btn btn-default" type="submit">Buscar</button>
+               
+            </div>
+
+        </div>
+
+         }
+    </body>
+</html>

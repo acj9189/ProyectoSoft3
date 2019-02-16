@@ -36,7 +36,6 @@ namespace GisDes.Controllers
         [HttpPost]
         public ActionResult CrearIntegrante(string Nombre, string Apellidos, string Cedula, string Nacionalidad, string Sexo, string Cvlac, string idNivelAcademico, string Correo, string idTipoIntegrante, string FechaIngreso)
         {
-            Console.WriteLine("");
             using (GisdesEntity bd = new GisdesEntity())
             {
                 Estado estado = bd.Estado.ToList().Find(x => x.Nombre.Equals("Activo"));

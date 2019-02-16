@@ -1,0 +1,84 @@
+﻿@model List<GisDes.Models.ActividadAsociadoSemilleroInv>
+
+@{
+    ViewBag.Title = "Asociar Integrante a Semillero de investigacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <h2>lista de actividades por semillero</h2>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="container">
+            <div class="form-group col-md-12">
+                <label class="panel-title"> Semillero de investigacion</label>
+                <select class="form-control" name="idSemillero" required>
+                    <option></option>
+                    @{
+                        using (GisDes.Models.GisdesEntity bd =new GisDes.Models.GisdesEntity())
+                        {
+                             foreach (GisDes.Models.SemilleroInvestigacion semillero in bd.SemilleroInvestigacion.Where(x => x.Estado1.Nombre.Equals("Activo")).ToList())
+                                {
+                                    <option value="@semillero.Id">@semillero.Nombre </option>
+                            }
+                        }
+
+                    }
+                </select>
+                <button type="submit" class="form-group btn btn-default">listar</button>
+                
+            </div>
+
+            <div class="form-group col-md-12">
+                <table class="table">
+                    <tr>
+                        <th>
+                            <label>Nombre</label>
+                        </th>
+
+                        <th>
+                            <label>Descripcion</label>
+                        </th>
+
+
+                        <td></td>
+                        @foreach (GisDes.Models.ActividadAsociadoSemilleroInv actividad in Model)
+        {
+                <tr>
+                    <td>
+                        @actividad.Actividad.Nombre
+                    </td>
+                    <td>
+                        @actividad.Actividad.Descripcion
+                </td>
+
+                </tr>
+}
+
+                        </tr>
+
+                    </table>
+            </div>
+        </div>
+        <div class=" form-group col-md-12">
+            @Html.ActionLink("Regresar", "Index", "Home")
+        </div>
+
+    }
+
+</body>
+</html>
+
+
+

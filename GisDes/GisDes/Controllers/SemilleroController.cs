@@ -16,7 +16,7 @@ namespace GisDes.Controllers
     public class SemilleroController : Controller
     {
         private GisdesEntity bd = new GisdesEntity();
-
+        private bool vistaVentana = true;
         /// <summary>
         /// Método que trae en una lista con la información del Semillero
         /// Autor: Carolina Quintero Valencia
@@ -29,60 +29,78 @@ namespace GisDes.Controllers
             return View(db.SemilleroInvestigacion.Where(Semillero => Semillero.Estado1.Nombre.Equals("Activo")).ToList());
         }
 
+
+        /// <summary>
+        /// Metodo que inicialisa la pagina que lista los integrantes que pertenecen a un esmilleros
+        /// Autor:Cristian Camilo Buitrago
+        /// </summary>
+        /// <returns></returns>se retorna los valores iniciales que tendra la pagina
         public ActionResult Index()
         {
             using (GisdesEntity bd = new GisdesEntity())
             {
+                
                 IntegranteYsemillero integranteYsemillero = new IntegranteYsemillero();
                 integranteYsemillero.semilleroInvestigacion = bd.SemilleroInvestigacion.ToList();
-
+                if (integranteYsemillero.semilleroInvestigacion.First()==null) {
+                    return View();
+                }
                 return View(integranteYsemillero);
 
             }
         }
-        /*
-         * autor Cristian Camilo Buitrago
-         * se muestra el nombre que le llega al metodo y busca el semillero por nombre que le entra como parametro
-         * y se llama al metodo ListarIntegrantesNombres y le envia el id
-         */
+
+
+        /// <summary>
+        ///  se muestra el nombre que le llega al metodo y busca el semillero por nombre que le entra como parametro
+        ///  y se llama al metodo ListarIntegrantesNombres y le envia el id
+        ///  autor Cristian Camilo Buitrago
+        /// </summary>
+        /// <param name="SelectorSemillero"></param> entra el id del semillero del cual se mostraran sus integranntes
+        /// <returns></returns>retorna la informacion que se pondra en la vista
         [HttpPost]
         public ActionResult Index(decimal SelectorSemillero)
         {
-
             using (GisdesEntity bd = new GisdesEntity())
             {
                 IntegranteYsemillero integranteYsemillero = ListarIntegrantesNombres(SelectorSemillero);
                 integranteYsemillero.semilleroInvestigacion = bd.SemilleroInvestigacion.ToList();
 
                 return View(integranteYsemillero);
-
             }
-
-
         }
 
 
-        /*
-         * autor Cristian Camilo Buitrago 
-         * se buscan todos los integranne que pertenescan al semillero y se envian a la vista 
-         * para formr la tabla
-         */
-        public IntegranteYsemillero ListarIntegrantesNombres(decimal id)
+      
+           
+         /// <summary>
+         ///  se buscan todos los integranne que pertenescan al semillero y se envian a la vista 
+         ///  para formr la tabla
+         /// Autor: Cristian Camilo Buitrago
+         /// </summary>
+         /// <param name="id"></param> id del semillero al que se obtendran los integrantes
+         /// <returns></returns>deuelve los integrantes del semollero
+        private IntegranteYsemillero ListarIntegrantesNombres(decimal id)
         {
+
             using (GisdesEntity bd = new GisdesEntity())
             {
                 decimal idSemillero = id;
                 List<IntegranteSemilleroInvestigacion> idsintegrantes = bd.IntegranteSemilleroInvestigacion.Where(IntegranteSemilleroInvestigacion => IntegranteSemilleroInvestigacion.IdSemillero == idSemillero).ToList();
                 List<Integrante> integrantes = new List<Integrante>();
+                List<String> fechaIgreso = new List<string>();
                 foreach (var item in idsintegrantes)
                 {
                     List<Integrante> inte = bd.Integrante.Where(integ => integ.Id == item.IdIntegrante).ToList();
+                    inte.First().FechaIngreso = item.FechaIngreso;
                     integrantes.Add(inte.First());
+
                 }
                 IntegranteYsemillero integranteYsemillero = new IntegranteYsemillero()
                 {
                     integrantes = integrantes,
-                    semilleroInvestigacion = bd.SemilleroInvestigacion.Where(x => x.Estado == 1).ToList()
+                    semilleroInvestigacion = bd.SemilleroInvestigacion.Where(x => x.Estado == 1).ToList(),
+                    FechaIngreso = fechaIgreso
                 };
 
                 return integranteYsemillero;
@@ -96,10 +114,9 @@ namespace GisDes.Controllers
         /// <returns></returns>
         public ActionResult CrearSemillero()
         {
-            Debug.WriteLine("Hola Entreeeeee");
             CrearSemillero nuevo = new CrearSemillero()
             {
-                listaIntegrantesDocentes = bd.Integrante.Where(x => x.TipoIntegrante == 3 && x.Estado == 1).ToList(),
+                listaIntegrantesDocentes = bd.Integrante.Where(x => x.TipoIntegrante1.Nombre.Equals("Profesor") && x.Estado1.Nombre.Equals("Activo")).ToList(),
                 listaLineasInvestigacion = bd.LineaInvestigacion.Where(x => x.Estado1.Nombre.Equals("activo")).ToList()
 
             };
@@ -125,33 +142,37 @@ namespace GisDes.Controllers
         {
             string nombreCoordinador = coordinador.Split(' ')[1].ToUpper();
             string apellidoCoordinador = coordinador.Split(' ')[2].ToUpper();
+            string linea = lineaInvestigacion.Split('-')[0].Trim().ToUpper();
             Integrante coordinadorSemillero = bd.Integrante.Where(x => x.Nombre.ToUpper().Equals(nombreCoordinador) && x.Apellidos.ToUpper().Equals(apellidoCoordinador)).ToList()[0];
+            Estado estadoD = bd.Estado.Where(x => x.Nombre.Equals("Activo")).ToList()[0];
+            LineaInvestigacion lineaI = bd.LineaInvestigacion.Where(x => x.Nombre.ToUpper().Equals(linea)).ToList()[0];
+
             SemilleroInvestigacion semillero = new SemilleroInvestigacion()
             {
                 Nombre = nombre,
                 Coordinador = coordinadorSemillero.Id,
-                LineaInvestigacion1 = bd.LineaInvestigacion.Where(x => x.Nombre.ToUpper().Equals(lineaInvestigacion.ToUpper())).ToList()[0],
+                LineaInvestigacion = lineaI.Id,
                 FechaCreacion = Convert.ToDateTime(fechaCreacion),
                 Enlace = enlace,
                 ObjetivoGeneral = objGeneral,
                 ObjetivosEspecificos = objEspecificos,
                 Tags = tags,
                 FechaUpdate = Convert.ToDateTime(fechaCreacion),
-                Estado = 1
+                Estado = estadoD.Id
             };
 
             bd.SemilleroInvestigacion.Add(semillero);
             bd.SaveChanges();
 
-            ViewBag.viewMessage = true;
+/*            ViewBag.viewMessage = true;
             ViewBag.TitleMSG = "Operacion exitosa";
             ViewBag.MessageMSG = "Se a creado el semillero" + nombre + " de manera exitosa";
-            ViewBag.IconMSG = "success";
-
+            ViewBag.IconMSG = "success";*/
+            PonerInformacionEnVEntana("Operacion exitosa", "Se a creado el semillero" + nombre + " de manera exitosa", "success");
 
             CrearSemillero nuevo = new CrearSemillero()
             {
-                listaIntegrantesDocentes = bd.Integrante.Where(x => x.TipoIntegrante == 3 && x.Estado == 1).ToList(),
+                listaIntegrantesDocentes = bd.Integrante.Where(x => x.TipoIntegrante1.Nombre.Equals("Profesor") && x.Estado1.Nombre.Equals("Activo")).ToList(),
                 listaLineasInvestigacion = bd.LineaInvestigacion.Where(x => x.Estado1.Nombre.Equals("activo")).ToList()
 
             };
@@ -159,6 +180,11 @@ namespace GisDes.Controllers
 
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public ActionResult CambiarEstadoSemillero()
         {
             CambiarEstadoSemillero estado = new CambiarEstadoSemillero();
@@ -171,23 +197,36 @@ namespace GisDes.Controllers
                 }
                 else
                 {
-                    ViewBag.viewMessage = true;
+                    /*ViewBag.viewMessage = true;
                     ViewBag.TitleMSG = "Error";
                     ViewBag.MessageMSG = "No existen Estados en la base de datos, consulte al administrador.";
                     ViewBag.IconMSG = "error";
+                    */
+                    PonerInformacionEnVEntana("Error", "No existen Estados en la base de datos, consulte al administrador.", "error");
+
                 }
             }
 
             else
             {
-                ViewBag.viewMessage = true;
+               /* ViewBag.viewMessage = true;
                 ViewBag.TitleMSG = "Error";
                 ViewBag.MessageMSG = "No existen semilleros en la base de datos, consulte al administrador.";
-                ViewBag.IconMSG = "error";
+                ViewBag.IconMSG = "error";*/
+
+                PonerInformacionEnVEntana("Error", "No existen semilleros en la base de datos, consulte al administrador.", "error");
+
             }
             return View(estado);
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idSemillero"></param>
+        /// <param name="estado"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult CambiarEstadoSemillero(decimal idSemillero, decimal estado)
         {
@@ -200,6 +239,11 @@ namespace GisDes.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Metodo AsociarIntegranteSemillero crea la relacion entre integrante y semillero a partir de una fecha
+        /// METODO GET
+        /// </summary>
+        /// <returns></returns>
         public ActionResult AsociarIntegranteSemillero()
         {
             AsociarIntegrante modelo = new AsociarIntegrante();
@@ -211,10 +255,12 @@ namespace GisDes.Controllers
                 }
                 else
                 {
-                    ViewBag.viewMessage = true;
-                    ViewBag.TitleMSG = "Error";
-                    ViewBag.MessageMSG = "No existen Integranes en la base de datos, consulte al administrador.";
-                    ViewBag.IconMSG = "error";
+                    /* ViewBag.viewMessage = true;
+                     ViewBag.TitleMSG = "Error";
+                     ViewBag.MessageMSG = "No existen Integranes en la base de datos, consulte al administrador.";
+                     ViewBag.IconMSG = "error";*/
+
+                    PonerInformacionEnVEntana("Error", "No existen Integranes en la base de datos, consulte al administrador.", "error");
                 }
             }
 
@@ -224,15 +270,45 @@ namespace GisDes.Controllers
                 ViewBag.TitleMSG = "Error";
                 ViewBag.MessageMSG = "No existen semilleros en la base de datos, consulte al administrador.";
                 ViewBag.IconMSG = "error";
+
+                PonerInformacionEnVEntana("Error", "No existen semilleros en la base de datos, consulte al administrador.", "error");
+
             }
             return View(modelo);
         }
 
+        /// <summary>
+        /// Metodo AsociarIntegranteSemillero crea la relacion entre integrante y semilleroa partir de una fecha
+        /// METODO POST
+        /// </summary>
+        /// <param name="idSemillero">id del semillero al que va a pertenecer el integrante</param>
+        /// <param name="idIntegrante">id del integrante</param>
+        /// <param name="fecha">fecha en la que se asocia al semillero</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult AsociarIntegranteSemillero(decimal idSemillero, decimal idIntegrante, string fecha)
         {
+            AsociarIntegrante modelo = new AsociarIntegrante();
+            Estado estado = bd.Estado.Where(x => x.Nombre.Equals("Activo")).ToList()[0];
+            IntegranteSemilleroInvestigacion integrante = new IntegranteSemilleroInvestigacion()
+            {
+                IdIntegrante = idIntegrante,
+                IdSemillero = idSemillero,
+                FechaIngreso = Convert.ToDateTime(fecha),
+                FechaUpdate = DateTime.Now,
+                Estado = estado.Id
+            };
+            bd.IntegranteSemilleroInvestigacion.Add(integrante);
+            bd.SaveChanges();
 
-            return View();
+            /*
+            ViewBag.viewMessage = true;
+            ViewBag.TitleMSG = "Operacion exitosa";
+            ViewBag.MessageMSG = "Se a asociado correctamente el nuevo integrante";
+            ViewBag.IconMSG = "success";*/
+            PonerInformacionEnVEntana("Operacion exitosa", "Se a asociado correctamente el nuevo integrante", "success");
+
+            return View(modelo);
         }
 
 
@@ -285,11 +361,22 @@ namespace GisDes.Controllers
 
 
         // GET: ActualizarSemillero
+        /// <summary>
+        /// Metodo que carga la vista de actualiza un semillero
+        /// Autor: Cristian CAmilo Buitrago
+        /// </summary>
+        /// <param name="id"></param> id del cemilero que se desea actualizar la vista
+        /// <returns></returns> retorna la vista del semillero
         public ActionResult ActualizarSemillero(decimal id)
         {
             return View(CargarInformacion(id));
         }
 
+        /// <summary>
+        /// Metodo que busca la informacion del semillero 
+        /// </summary>
+        /// <param name="id"></param> id del semillero que se quiere cambiar la informacion
+        /// <returns></returns> debuelve el semillero con toda su informacion
         public ActualizarSemillero CargarInformacion(decimal id)
         {
             ActualizarSemillero actualizar = new ActualizarSemillero();
@@ -299,6 +386,20 @@ namespace GisDes.Controllers
             return actualizar;
         }
 
+        /// <summary>
+        /// recive la nueva informacion del semillero y la cambia por la antigua informacion 
+        /// 
+        /// Autor:Cristian Camilo Buitrago
+        /// </summary>
+        /// <param name="id"></param> id del al que se desea actualzar la informacion.
+        /// <param name="Nombre"></param>Nombre del semillero
+        /// <param name="Coordinador"></param>numero que identifica al semillero
+        /// <param name="ObjetivoGeneral"></param> objetivo general de semillero
+        /// <param name="ObjetivoEspecifico"></param>objetivo especifico del semillero
+        /// <param name="LineaInvestigacion"></param>numero que iddentifica la linea de investigacion
+        /// <param name="Enlace"></param>enlace a la pagina de la linea de investifacion
+        /// <param name="Tags"></param> tgas por los que se puede encontrar el semillero
+        /// <returns></returns> 
         [HttpPost]
         public ActionResult ActualizarSemillero(decimal id, String Nombre, decimal Coordinador, String ObjetivoGeneral, String ObjetivoEspecifico,
             decimal LineaInvestigacion, String Enlace, String Tags)
@@ -308,39 +409,63 @@ namespace GisDes.Controllers
                 LineaInvestigacion, Enlace);
             if (a)
             {
-
-
                 Boolean b = GuardarSemillero(id, Nombre, Coordinador,
                 ObjetivoGeneral, ObjetivoEspecifico,
                 LineaInvestigacion, Enlace, Tags);
                 //return Redirect(ListaIntegrantes);
                 if (b)
                 {
-                    ViewBag.viewMessage = true;
+                   /* ViewBag.viewMessage = true;
                     ViewBag.TitleMSG = "Operacion exitosa";
-                    ViewBag.MessageMSG = "Se actualizo el semillero ";
+                    ViewBag.MessageMSG = "Se actualizo el semillero";
                     ViewBag.IconMSG = "success";
+                    */
+                    PonerInformacionEnVEntana("Operacion exitosa", "Se actualizo el semillero", "success");
                     return RedirectToAction("ListarSemillero");//organizar
                 }
                 else
                 {
-                    ViewBag.viewMessage = true;
+                   /* ViewBag.viewMessage = true;
                     ViewBag.TitleMSG = "Error";
                     ViewBag.MessageMSG = "No se Pudo actualizar el semillero ";
-                    ViewBag.IconMSG = "error";
+                    ViewBag.IconMSG = "error";*/
+                    PonerInformacionEnVEntana("Error", "No se Pudo actualizar el semillero ", "error");
                 }
             }
             else
             {
-                ViewBag.viewMessage = true;
+               /* ViewBag.viewMessage = true;
                 ViewBag.TitleMSG = "Error";
                 ViewBag.MessageMSG = "No se pede ingresar datos vacios.";
-                ViewBag.IconMSG = "error";
+                ViewBag.IconMSG = "error";*/
+                PonerInformacionEnVEntana("Error", "No se Pudo actualizar el semillero ", "error");
 
             }
             return View(CargarInformacion(id));
         }
 
+
+        private void PonerInformacionEnVEntana(String tituloVentana,String mensajeVentana, String Icocno)
+        {
+            ViewBag.viewMessage = this.vistaVentana;
+            ViewBag.TitleMSG = tituloVentana;
+            ViewBag.MessageMSG = mensajeVentana;
+            ViewBag.IconMSG = Icocno;
+        }
+
+        /// <summary>
+        /// metodo que guarda la informacion en el la base de datos
+        /// Autor: Cristian CAmilo Buitrago
+        /// </summary>
+        /// <param name="id"></param> id del al que se desea actualzar la informacion.
+        /// <param name="Nombre"></param>Nombre del semillero
+        /// <param name="Coordinador"></param>numero que identifica al semillero
+        /// <param name="ObjetivoGeneral"></param> objetivo general de semillero
+        /// <param name="ObjetivoEspecifico"></param>objetivo especifico del semillero
+        /// <param name="LineaInvestigacion"></param>numero que iddentifica la linea de investigacion
+        /// <param name="Enlace"></param>enlace a la pagina de la linea de investifacion
+        /// <param name="Tags"></param> tgas por los que se puede encontrar el semillero
+        /// <returns></returns>
         public Boolean GuardarSemillero(decimal id, String Nombre, decimal Coordinador, String ObjetivoGeneral, String ObjetivoEspecifico,
             decimal LineaInvestigacion, String Enlace, String Tag)
         {
@@ -367,19 +492,35 @@ namespace GisDes.Controllers
             return guarda;
         }
 
-
+        /// <summary>
+        /// debuelve una lista de integrantes que pertenecen al semillero
+        /// </summary>
+        /// <returns></returns>
         public List<Integrante> CargarIntegrantes()
         {
             ActualizarSemillero actualizar = new ActualizarSemillero();
             return actualizar.ObtenerIntegrantes();
         }
 
+
+        /// <summary>
+        /// Metodo que carga la linea de investigacion del semillero
+        /// </summary>
+        /// <param name="Codigo"></param> codigo con el que se identifica el semillero dentro de la base de datos
+        /// <returns></returns>
         public List<LineaInvestigacion> CargarLineaInvestigacion(decimal Codigo)
         {
             ActualizarSemillero actualizar = new ActualizarSemillero();
             return actualizar.ObtenerlineaInvestigacions();
         }
 
+
+        /// <summary>
+        /// Metodo que carga la informacion del semillero
+        /// Autor: Cristian Camilo Buitrago
+        /// </summary>
+        /// <param name="Id"></param> numero con el que se identifica un semillero
+        /// <returns></returns>
         public SemilleroInvestigacion ObtenerSemilleroInvestigacion(decimal Id)
         {
             using (GisdesEntity bd = new GisdesEntity())
@@ -389,8 +530,18 @@ namespace GisDes.Controllers
             }
         }
 
-        public Boolean ComprobarDatos(String Nombre, decimal coordinador, String ObjetivoGeneral, String ObjetivoEspecifico,
-            decimal LineaInvestigacion, String Enlace)
+
+        /// <summary>
+        /// Metodo que verifica si los datos ingresados contienen informacion 
+        /// </summary>
+        /// <param name="Nombre"></param> nombre del semillero
+        /// <param name="coordinador"></param> numero con el que se identifica el coordinador en la bse de datos
+        /// <param name="ObjetivoGeneral"></param> objetivo general del semillero
+        /// <param name="ObjetivoEspecifico"></param>objetivo especifico del semillero
+        /// <param name="LineaInvestigacion"></param> numero con el que identifica la linea de investigacion dentro de la base de datos
+        /// <param name="Enlace"></param> enlace de la pagina de este semillero
+        /// <returns></returns>
+        public Boolean ComprobarDatos(String Nombre, decimal coordinador, String ObjetivoGeneral, String ObjetivoEspecifico, decimal LineaInvestigacion, String Enlace)
         {
             if (Nombre.Trim().Length > 0 && coordinador > 0 && ObjetivoGeneral.Trim().Length > 0
                 && ObjetivoEspecifico.Trim().Length > 0 && LineaInvestigacion > 0 && Enlace.Trim().Length > 0)
@@ -439,6 +590,28 @@ namespace GisDes.Controllers
                 //List<SemilleroInvestigacion> semillero =;
                 return bd.SemilleroInvestigacion.Find(id);
             }
+        }
+
+        public ActionResult listarActividadesSemilleros()
+        {
+            return View(new List<ActividadAsociadoSemilleroInv>());
+        }
+
+        [HttpPost]
+        public ActionResult listarActividadesSemilleros(decimal idSemillero)
+        {
+            GisdesEntity bd = new GisdesEntity();
+            List<ActividadAsociadoSemilleroInv> lista = bd.ActividadAsociadoSemilleroInv.Where(x => x.IdSemillero == idSemillero).ToList();
+            if(lista.Count == 0)
+            {
+               /* ViewBag.viewMessage = true;
+                ViewBag.TitleMSG = "Info";
+                ViewBag.MessageMSG = "El semillero elegido no posee actividades";
+                ViewBag.IconMSG = "info";*/
+
+                PonerInformacionEnVEntana("Info", "El semillero elegido no posee actividades", "info");
+            }
+            return View(lista);
         }
     }
 }
