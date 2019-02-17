@@ -315,6 +315,72 @@ namespace GisDes.Controllers
             return View(modelo);
         }
 
+        [HttpPost]
+        public ActionResult AsociarIntegranteSemillero(decimal idSemillero, decimal idIntegrante, string fecha, decimal idActividad)
+        {
+            AsociarIntegrante modelo = new AsociarIntegrante();
+            Estado estado = bd.Estado.Where(x => x.Nombre.Equals("Activo")).ToList()[0];
+            IntegranteSemilleroInvestigacion integrante = new IntegranteSemilleroInvestigacion()
+            {
+                IdIntegrante = idIntegrante,
+                IdSemillero = idSemillero,
+                FechaIngreso = Convert.ToDateTime(fecha),
+                FechaUpdate = DateTime.Now,
+                Estado = estado.Id
+            };
+            bd.IntegranteSemilleroInvestigacion.Add(integrante);
+            bd.SaveChanges();
+            IntegranteActividad integranteActividad = new IntegranteActividad()
+            {
+                IdActividad = idActividad,
+                IdIntegrante = idIntegrante
+            };
+            bd.IntegranteActividad.Add(integranteActividad);
+            bd.SaveChanges();
+            PonerInformacionEnVEntana("Operacion exitosa", "Se a asociado correctamente el nuevo integrante", "success");
+
+            return View(modelo);
+        }
+
+        [HttpPost]
+        public ActionResult AsociarIntegranteSemillero(decimal idSemillero, decimal idIntegrante, string fecha, string descripcionActividad)
+        {
+            decimal idActividad = bd.Actividad.Count() + 1;
+            AsociarIntegrante modelo = new AsociarIntegrante();
+            Estado estado = bd.Estado.Where(x => x.Nombre.Equals("Activo")).ToList()[0];
+            IntegranteSemilleroInvestigacion integrante = new IntegranteSemilleroInvestigacion()
+            {
+                IdIntegrante = idIntegrante,
+                IdSemillero = idSemillero,
+                FechaIngreso = Convert.ToDateTime(fecha),
+                FechaUpdate = DateTime.Now,
+                Estado = estado.Id
+            };
+            bd.IntegranteSemilleroInvestigacion.Add(integrante);
+            bd.SaveChanges();
+
+            Actividad actividad = new Actividad()
+            {
+                Id = idActividad,
+                Descripcion = descripcionActividad,
+                Estado = 1,
+                FechaInicio = DateTime.Now,
+                FechaFin = DateTime.Parse("2-2-2039"),
+            };
+            bd.Actividad.Add(actividad);
+            bd.SaveChanges();
+
+            IntegranteActividad integranteActividad = new IntegranteActividad()
+            {
+                IdActividad = idActividad,
+                IdIntegrante = idIntegrante
+            };
+            bd.IntegranteActividad.Add(integranteActividad);
+            bd.SaveChanges();
+            PonerInformacionEnVEntana("Operacion exitosa", "Se a asociado correctamente el nuevo integrante", "success");
+
+            return View(modelo);
+        }
 
         /// <summary>
         /// Metodo que devuelve la interface en blanco de ConsultarSemillero
