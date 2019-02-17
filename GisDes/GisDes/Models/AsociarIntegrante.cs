@@ -63,18 +63,18 @@ namespace GisDes.Models
             return salida;
         }
 
-        public List<String> listarActividadesSegunSemillero(decimal idSemillero) {
+        public List<Actividad> listarActividadesSegunSemillero(decimal idSemillero) {
 
             using (GisdesEntity bd = new GisdesEntity())
             {
-               List<string> acts = new List<string>();
-               ActividadAsociadoSemilleroInv actividadesAsociadasSemillero = (ActividadAsociadoSemilleroInv) bd.ActividadAsociadoSemilleroInv.Where(x => x.IdSemillero == idSemillero);
-               foreach (char i in actividadesAsociadasSemillero.IdActividad.ToString())
+               List<Actividad> actividades = new List<Actividad>();
+               List<ActividadAsociadoSemilleroInv> acts =  bd.ActividadAsociadoSemilleroInv.Where(x => x.IdSemillero == idSemillero).ToList();
+               foreach (ActividadAsociadoSemilleroInv i in acts )
                {
-                    Actividad actividadSemillero = (Actividad) bd.Actividad.Where(x => x.Id == (decimal) i ) ;
-                    acts.Add(actividadSemillero.Nombre);     
+                    Actividad actividadSemillero = (Actividad) bd.Actividad.Where(x => x.Id ==  i.IdActividad) ;
+                    actividades.Add(actividadSemillero);     
                }
-                return acts;
+                return actividades;
             } 
             
         }
