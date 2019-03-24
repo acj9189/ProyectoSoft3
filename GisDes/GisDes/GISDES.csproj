@@ -326,6 +326,7 @@
       <DependentUpon>ConexionBD.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\GisDes20180714093642 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\GisDes20190323044756 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -414,6 +415,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API\API\API.csproj">
+      <Project>{b82300ae-9f80-4f10-a9a3-5f2d86e3c6bb}</Project>
+      <Name>API</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

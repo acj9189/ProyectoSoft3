@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GisDes", "GisDes\GisDes.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGISDES", "UnitTestGISDES\UnitTestGISDES.csproj", "{60CEB480-BAFA-49A1-A958-3B54F7ED987F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API\API.csproj", "{B82300AE-9F80-4F10-A9A3-5F2D86E3C6BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{60CEB480-BAFA-49A1-A958-3B54F7ED987F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CEB480-BAFA-49A1-A958-3B54F7ED987F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60CEB480-BAFA-49A1-A958-3B54F7ED987F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82300AE-9F80-4F10-A9A3-5F2D86E3C6BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B82300AE-9F80-4F10-A9A3-5F2D86E3C6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B82300AE-9F80-4F10-A9A3-5F2D86E3C6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B82300AE-9F80-4F10-A9A3-5F2D86E3C6BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

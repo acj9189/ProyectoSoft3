@@ -20,42 +20,64 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="container">
-            <div class="form-group col-md-6">
-                <label class="panel-title"> Nombre del integrante:</label>
-                <select class="form-control" name="idIntegrante" required>
-                    <option></option>
-                    @{
-                        foreach (GisDes.Models.Integrante integrante in Model.listarIntegrantes())
-                        {
-                            <option value="@integrante.Id">@integrante.Nombre @integrante.Apellidos</option>
-                        }
+    <div class="container">
+        <div class="form-group col-md-6">
+            <label class="panel-title"> Nombre del integrante:</label>
+            <select class="form-control" name="idIntegrante" required>
+                <option></option>
+                @{
+                    foreach (GisDes.Models.Integrante integrante in Model.listarIntegrantes())
+                    {
+                        <option value="@integrante.Id">@integrante.Nombre @integrante.Apellidos</option>
                     }
-                </select>
+                }
+            </select>
 
-                <label class="panel-title"> Semillero a pertenecer:</label>
-                <select class="form-control" name="idSemillero" required>
-                    <option></option>
-                    @{
-                        foreach (GisDes.Models.SemilleroInvestigacion semillero in Model.listarSemilleros())
-                        {
-                            <option value="@semillero.Id">@semillero.Nombre </option>
-                        }
+            <label class="panel-title"> Semillero a pertenecer:</label>
+            <select class="form-control" name="idSemillero" required>
+                <option></option>
+                @{
+                    foreach (GisDes.Models.SemilleroInvestigacion semillero in Model.listarSemilleros())
+                    {
+                        <option value="@semillero.Id">@semillero.Nombre </option>
                     }
-                </select>
-            </div>
+                }
+            </select>
+        </div>
 
+        <div class="form-group col-md-6">
+            <label class="panel-title"> Actividad: </label>
+            <select class="form-control" name="idActividad"  >
+                <option></option>
+                @{
+                    /*foreach (GisDes.Models.SemilleroInvestigacion semillero in Model.listarSemilleros())
+                    {
+                        <option value="@semillero.Id">@semillero.Nombre </option>
+                    }*/
+                }
+            </select>
+
+            <label class="panel-title"> Descripción :</label>
+            <input class="form-control" type="text" name="desActividad" />
+
+        </div>
             <div class="form-group col-md-6">
                 <label class="panel-title">Fecha de ingreso al semillero:</label>
-                <input class="form-control" type="date" name="fecha" required />
+                <input class="form-control" type="date" name="fecha"  />
             </div>
+
+
+
+
+
         </div>
+
         <div class=" form-group col-md-12">
-            <button class="btn btn-default" type="submit">Crear</button>
+            <button class="btn btn-default" type="submit">Asociar</button>
             @Html.ActionLink("Regresar", "Index", "Home")
         </div>
 
-    }
+        }
 
 </body>
 </html>

@@ -58,3 +58,6 @@ F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.
 F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.csproj.CopyComplete
 F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.dll
 F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\obj\Debug\UnitTestGISDES.pdb
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\UnitTestGISDES.dll.config
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\EntityFramework.SqlServer.dll
+F:\Programacion\C#\ProyectoSoft3\GisDes\UnitTestGISDES\bin\Debug\EntityFramework.SqlServer.xml

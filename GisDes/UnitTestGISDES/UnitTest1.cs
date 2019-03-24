@@ -51,9 +51,7 @@ namespace UnitTestGISDES
                 LineaInvestigacion, Enlace, Tag);
                 Assert.IsFalse(salidasGuardarSemillero);
 
-            }
-
-           
+            }   
 
         }
 

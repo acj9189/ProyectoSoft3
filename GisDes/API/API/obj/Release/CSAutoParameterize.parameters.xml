@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="ModelosAPP-Web.config Connection String" description="ModelosAPP Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="data source=software220181.database.windows.net;initial catalog=GISDES;persist security info=True;user id=software2;password=sistemas.2018;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="F:\\Programacion\\C\#\\ProyectoSoft3\\GisDes\\API\\API\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ModelosAPP']/@connectionString" />
+  </parameter>
+</parameters>
