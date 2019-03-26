@@ -23,6 +23,18 @@ namespace API.Models
         [Required]
         public string DescripcionPorqueQuiereIngresar { get; set; }
 
+        [Column(TypeName = "numeric")]
+        [Required]
+        public decimal IdIntegrante { get; set; }
+
+        [Column(TypeName = "numeric")]
+        [Required]
+        public decimal IdSemolleroInvestigacion { get; set; }
+
+        [Column(TypeName = "numeric")]
+        [Required]
+        public decimal Coordinador { get; set; }
+
         //public Integrante Integrante { get; set; }
 
         //public Integrante Integrante1 { get; set; }
