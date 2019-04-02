@@ -71,10 +71,52 @@ namespace API.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Solicituds
+        //// POST: api/Solicituds
+        //[ResponseType(typeof(Solicitud))]
+        //public async Task<IHttpActionResult> PostSolicitud(Solicitud solicitud)
+        //{
+
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    db.Solicitud.Add(solicitud);
+
+        //    try
+        //    {
+        //        await db.SaveChangesAsync();
+        //    }
+        //    catch (DbUpdateException)
+        //    {
+        //        if (SolicitudExists(solicitud.Id))
+        //        {
+        //            return Conflict();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
+
+        //    return CreatedAtRoute("DefaultApi", new { id = solicitud.Id }, solicitud);
+        //}
+
+
+        // POST: api/Solicituds 
         [ResponseType(typeof(Solicitud))]
-        public async Task<IHttpActionResult> PostSolicitud(Solicitud solicitud)
+        public async Task<IHttpActionResult> PostSolicitud(string datos)
         {
+            string[] a = datos.Split(',');
+            Solicitud solicitud = new Solicitud();
+          //  solicitud.Id = id;
+            solicitud.Correo = a[0];
+            solicitud.Coordinador =  Convert.ToDecimal(a[1]);
+            solicitud.IdIntegrante = Convert.ToDecimal(a[2]);
+            solicitud.NombreIntegrante = a[3];
+            solicitud.DescripcionPorqueQuiereIngresar = a[4];
+            solicitud.IdSemolleroInvestigacion = Convert.ToDecimal(a[5]);
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
