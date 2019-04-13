@@ -59,9 +59,8 @@ namespace API.Controllers
                 IdSemillero + "," + IdCoordinador + "," + id + ")", conexionBaseDatos);
             DataSet ds = new DataSet();
             da.Fill(ds);
-            System.Diagnostics.Debug.WriteLine("HOLA LE MONO ES GAY>>>>>" + da.ToString());
 
-
+            hacerNotificacion(id, IdCoordinador, "NO atendido", conexionBaseDatos);
             return null;
         }
 
@@ -98,10 +97,28 @@ namespace API.Controllers
             DataSet ds = new DataSet();
             da.Fill(ds);
 
-            System.Diagnostics.Debug.WriteLine("HOLA LE MONO ES GAY>>>>>" + da.ToString());
+            hacerNotificacion(id, IdCoordinador, "NO atendido", conexionBaseDatos);
 
 
             return null;
+        }
+
+        private void hacerNotificacion(string idSolicitud, string idCoordinador, string Estado, SqlConnection conexionBaseDatos) {
+
+            SqlDataAdapter cantidadId = new SqlDataAdapter("SELECT IdNotificacion FROM NOTIFICACION", conexionBaseDatos);
+            DataSet toalId = new DataSet();
+            cantidadId.Fill(toalId);
+            int idNotifacion = toalId.Tables[0].Rows.Count + 1;
+
+            string id = idNotifacion.ToString();
+
+            SqlDataAdapter da = new SqlDataAdapter("INSERT INTO NOTIFICACION (IdNotificacion, IdSolicitud, idCoordinador," +
+              "EstadoRegistro)" +
+              "VALUES(" + "'" + id + "'" + ","  + "'" + idSolicitud + "'" + "," + "'" + idCoordinador + "'" + "," + "'" + Estado + "'" + ")", conexionBaseDatos);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+
         }
 
         //// PUT: api/Solicituds/5
