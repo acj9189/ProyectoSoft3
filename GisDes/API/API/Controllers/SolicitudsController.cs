@@ -41,17 +41,11 @@ namespace API.Controllers
         [ResponseType(typeof(Solicitud))]
         public async Task<IHttpActionResult> GetSolicitud(string NombreIntegrante, string correo, string descripcion, string Idintegrante, string IdSemillero, string IdCoordinador)
         {
+            string id = "";
             SqlConnection conexionBaseDatos = new SqlConnection("Data Source=software220181.database.windows.net; " +
                 "Initial Catalog=GISDES;" +
                 "User ID=software2;" +
                 "Password=sistemas.2018;");
-            SqlDataAdapter cantidadId = new SqlDataAdapter("SELECT id FROM SOLICITUD", conexionBaseDatos);
-            DataSet toalId = new DataSet();
-            cantidadId.Fill(toalId);
-            int idSolicitud = toalId.Tables[0].Rows.Count + 1;
-
-            string id = idSolicitud.ToString();
-            
 
             SqlDataAdapter da = new SqlDataAdapter("SET IDENTITY_INSERT SOLICITUD on INSERT INTO SOLICITUD (NombreIntegrante,correo," +
                 "DESCRIPCIONPORQUEQUIEREINGRESAR,IdIntegrante,IDSEMoLLEROinvestigacion,COORDINADOR,ID)" +
@@ -68,10 +62,6 @@ namespace API.Controllers
         [ResponseType(typeof(Solicitud))]
         public async Task<IHttpActionResult> GetSolicitud(string dato)
         {
-            SqlConnection conexionBaseDatos = new SqlConnection("Data Source=software220181.database.windows.net; " +
-                "Initial Catalog=GISDES;" +
-                "User ID=software2;" +
-                "Password=sistemas.2018;");
 
             string[] datos = dato.Split('<');
 
@@ -82,13 +72,11 @@ namespace API.Controllers
             string Idintegrante = datos[3];
             string IdSemillero = datos[4];
             string IdCoordinador = datos[5];
-
-            SqlDataAdapter cantidadId = new SqlDataAdapter("SELECT id FROM SOLICITUD", conexionBaseDatos);
-            DataSet toalId = new DataSet();
-            cantidadId.Fill(toalId);
-            int idSolicitud = toalId.Tables[0].Rows.Count + 1;
-
-            string id = idSolicitud.ToString();
+            string id = "7";
+            SqlConnection conexionBaseDatos = new SqlConnection("Data Source=software220181.database.windows.net; " +
+                "Initial Catalog=GISDES;" +
+                "User ID=software2;" +
+                "Password=sistemas.2018;");
    
             SqlDataAdapter da = new SqlDataAdapter("SET IDENTITY_INSERT SOLICITUD on INSERT INTO SOLICITUD (NombreIntegrante,correo," +
                 "DESCRIPCIONPORQUEQUIEREINGRESAR,IdIntegrante,IDSEMoLLEROinvestigacion,COORDINADOR,ID)" +
